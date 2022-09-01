@@ -7,42 +7,42 @@
       xsi:schemaLocation="
             http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with PRO Sitemap Service https://pro-sitemaps.com -->
 
   <url>
        <loc>https://muratkoptur.com/</loc>
-       <lastmod>2022-06-29T05:56:24+00:00</lastmod>
+       <lastmod>2022-08-30T15:41:52+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>1.0000</priority>
   </url>
-    <url>
+  <url>
        <loc>https://muratkoptur.com/MyDsProjects/</loc>
-       <lastmod>2022-08-28T06:30:38+00:00</lastmod>
+       <lastmod>2022-08-28T19:41:29+00:00</lastmod>
        <changefreq>daily</changefreq>
-       <priority>1.0000</priority>
+       <priority>0.6400</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/index.html</loc>
-       <lastmod>2022-08-28T06:30:38+00:00</lastmod>
+       <lastmod>2022-08-28T19:41:29+00:00</lastmod>
        <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
+       <priority>0.5120</priority>
+  </url>
+  <url>
+       <loc>https://muratkoptur.com/MyDsProjects/MissingData/Analysis.html</loc>
+       <lastmod>2022-08-28T19:41:29+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/StockClustering/Analysis.html</loc>
-       <lastmod>2022-08-28T06:30:38+00:00</lastmod>
+       <lastmod>2022-08-28T19:41:29+00:00</lastmod>
        <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
+       <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/EarthQuakeProbability/Analysis.html</loc>
-       <lastmod>2022-08-28T06:30:38+00:00</lastmod>
+       <lastmod>2022-08-28T19:41:29+00:00</lastmod>
        <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/MissingData/Analysis.html</loc>
-       <lastmod>2022-08-28T06:30:38+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
+       <priority>0.5120</priority>
   </url>
 </urlset>
