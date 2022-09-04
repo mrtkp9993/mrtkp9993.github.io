@@ -1,6 +1,7 @@
 https://muratkoptur.com/
 https://muratkoptur.com/MyDsProjects/
 https://muratkoptur.com/MyDsProjects/index.html
+https://muratkoptur.com/MyDsProjects/ConceptDrift/Analysis.html
 https://muratkoptur.com/MyDsProjects/TimeSeriesPredictability/Analysis.html
 https://muratkoptur.com/MyDsProjects/MissingData/Analysis.html
 https://muratkoptur.com/MyDsProjects/StockClustering/Analysis.html
