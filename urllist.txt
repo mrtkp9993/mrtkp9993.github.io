@@ -1,6 +1,8 @@
 https://muratkoptur.com/
 https://muratkoptur.com/MyDsProjects/
 https://muratkoptur.com/MyDsProjects/index.html
+https://muratkoptur.com/MyDsProjects/about.html
+https://muratkoptur.com/MyDsProjects/SysIdent/Analysis.html
 https://muratkoptur.com/MyDsProjects/ConceptDrift/Analysis.html
 https://muratkoptur.com/MyDsProjects/TimeSeriesPredictability/Analysis.html
 https://muratkoptur.com/MyDsProjects/MissingData/Analysis.html
