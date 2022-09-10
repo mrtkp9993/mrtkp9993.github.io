@@ -11,61 +11,67 @@
 
   <url>
        <loc>https://muratkoptur.com/</loc>
-       <lastmod>2022-09-04T14:01:32+00:00</lastmod>
+       <lastmod>2022-09-08T07:29:12+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>1.0000</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:54+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.6400</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/index.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:54+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/about.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:54+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.5120</priority>
+  </url>
+  <url>
+       <loc>https://muratkoptur.com/MyDsProjects/AnomalyOcsvm/Analysis.html</loc>
+       <lastmod>2022-09-10T12:22:53+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.9500</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/SysIdent/Analysis.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:54+00:00</lastmod>
        <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
+       <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/ConceptDrift/Analysis.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:53+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/TimeSeriesPredictability/Analysis.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:54+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/MissingData/Analysis.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:54+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/StockClustering/Analysis.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:54+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.5120</priority>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/EarthQuakeProbability/Analysis.html</loc>
-       <lastmod>2022-09-08T07:26:17+00:00</lastmod>
+       <lastmod>2022-09-10T12:22:53+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.5120</priority>
   </url>
