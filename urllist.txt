@@ -1,7 +1,10 @@
 https://muratkoptur.com/
 https://muratkoptur.com/MyDsProjects/
+https://muratkoptur.com/MyDsProjects/index.xml
 https://muratkoptur.com/MyDsProjects/index.html
 https://muratkoptur.com/MyDsProjects/about.html
+https://muratkoptur.com/MyDsProjects/TimeSeriesClassification/Analysis.html
+https://muratkoptur.com/MyDsProjects/UncertaintyQuantification/Analysis.html
 https://muratkoptur.com/MyDsProjects/AnomalyOcsvm/Analysis.html
 https://muratkoptur.com/MyDsProjects/SysIdent/Analysis.html
 https://muratkoptur.com/MyDsProjects/ConceptDrift/Analysis.html
