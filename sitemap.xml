@@ -1,96 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xhtml="http://www.w3.org/1999/xhtml"
-      xsi:schemaLocation="
-            http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with PRO Sitemap Service https://pro-sitemaps.com -->
-
-  <url>
-       <loc>https://muratkoptur.com/</loc>
-       <lastmod>2022-09-11T08:53:57+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>1.0000</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/index.xml</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/index.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/about.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/TimeSeriesClassification/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/UncertaintyQuantification/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.9500</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/AnomalyOcsvm/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/SysIdent/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/ConceptDrift/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/TimeSeriesPredictability/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/MissingData/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/StockClustering/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://muratkoptur.com/MyDsProjects/EarthQuakeProbability/Analysis.html</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://muratkoptur.com/</loc>
+<lastmod>2022-09-11T11:53:19+03:00</lastmod>
+</url>
+<url>
+<loc>https://muratkoptur.com/404.html</loc>
+<lastmod>2022-09-03T14:29:45+03:00</lastmod>
+</url>
+<url>
+<loc>https://muratkoptur.com/GENEL-GİZLİLİK-SÖZLEŞMESİ.pdf</loc>
+<lastmod>2021-11-19T15:27:34+03:00</lastmod>
+</url>
+<url>
+<loc>https://muratkoptur.com/dmca-validation.html</loc>
+<lastmod>2022-09-01T20:02:17+03:00</lastmod>
+</url>
+<url>
+<loc>https://muratkoptur.com/google54a24973339a88fe.html</loc>
+<lastmod>2021-01-11T17:54:34+03:00</lastmod>
+</url>
+<url>
+<loc>https://muratkoptur.com/index_normal.html</loc>
+<lastmod>2022-09-11T11:53:19+03:00</lastmod>
+</url>
+<url>
+<loc>https://muratkoptur.com/privacy.html</loc>
+<lastmod>2022-08-28T14:58:00+03:00</lastmod>
+</url>
 </urlset>
