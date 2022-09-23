@@ -20,8 +20,10 @@
     color: var(--headerColor);
     padding: 0px 20px;
     background-color: #231832;
+    background-image: url( 'images/layered-steps-haikei.svg' );
+    background-size: contain;
   }
-  
+
   /* for all icons */
   .icon {
     width: 24px;

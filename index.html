@@ -19,10 +19,15 @@
     <style type="text/css" href="css/styles.css"></style>
   </head>
   <body>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <nav class='padChild topHeader'>
       <div class='flex-space-btw'>
-        <a class="centered logo">Murat Koptur</a>
-            <ul class="social-media-list centered">
+        <a class="centered logo" data-aos="fade-right">Murat Koptur</a>
+            <ul class="social-media-list centered" data-aos="fade-left">
               <li><a href="https://twitter.com/mrtkp9993"><i class="fab fa-twitter"></i></a></li>
               <li><a href="https://www.linkedin.com/in/muratkoptur/"><i class="fab fa-linkedin"></i></a></li>
               <li><a href="https://www.researchgate.net/profile/Murat-Koptur"><i class="fab fa-researchgate"></i></a></li>
@@ -35,7 +40,7 @@
     </nav>
     <div class='container'>
       <section class='grid2 aboutSection'>
-        <div class='centered'>
+        <div class='centered' data-aos="fade-right">
           <div>
             <h2>Hi, I'm Murat Koptur</h2>
             <p class='paragraph'>I am a professional Data Scientist <script>document.write(new Date().getFullYear() - 2017)</script>+ years of experience building small to large end-to-end data science solutions. My interests are data science, numerical analysis, and mathematical/statistical modeling. When not playing with data, I’m enjoying spending time playing music and working on digital art paintings.
@@ -52,21 +57,21 @@
            </div>
           </div>
         </div>
-        <div class='aboutImg backgroundFix' style="background-image: url(images/about.webp)"></div>
+        <div class='aboutImg backgroundFix' style="background-image: url(images/about.webp)" data-aos="fade-left"></div>
       </section>
     </div>
     <div class='container portfolio-section'>
       <section >
         <h2>Services</h2>
         <div class='grid2'>
-          <a href="#">
+          <a href="#" data-aos="fade-right">
               <div class="portfolio-image backgroundFix" style='background-image: url(images/analysis.webp)'>
               </div>
               <h3 class="bold">Analysis</h3>
               <p>
                 Perform predictive and prescriptive analytics for many different domains.
               </p>
-          <a href="#">
+          <a href="#" data-aos="fade-left">
               <div class="portfolio-image backgroundFix" style='background-image: url(images/development.webp)'>
                 
               </div>
@@ -82,14 +87,14 @@
       <section >
         <h2>Portfolio</h2>
         <div class='grid3'>
-          <a href="#">
+          <a href="#" data-aos="fade-right">
               <div class="portfolio-image backgroundFix" style='background-image: url(works/ats1.webp)'>
               </div>
               <h3 class="bold">AutoTS</h3>
               <p>
                 One-click univariate time series modelling tool for Python.
               </p>
-          <a href="https://play.google.com/store/apps/details?id=com.tradesly.tradesly">
+          <a href="https://play.google.com/store/apps/details?id=com.tradesly.tradesly" data-aos="fade-up">
               <div class="portfolio-image backgroundFix" style='background-image: url(works/tradesly.webp)'>
                 
               </div>
@@ -99,8 +104,8 @@
 Tradesly's AI algorithms, which are tailored to each instrument, provide recommendations for each day, maximizing profits while minimizing risk!
               </p>
             </a>
-          <a href="https://github.com/mrtkp9993">
-              <div class="portfolio-image backgroundFix" style='background-image: url(https://github.com/mrtkp9993/mrtkp9993/raw/master/github-metrics.svg)'>
+          <a href="https://github.com/mrtkp9993" data-aos="fade-left">
+              <div class="portfolio-image backgroundFix" style='background-image: url(https://github.com/mrtkp9993/mrtkp9993/raw/master/github-metrics.svg); background-color: #231832;'>
                 
               </div>
               <h3 class="bold">Open-source GitHub Projects</h3>
@@ -119,5 +124,7 @@ Tradesly's AI algorithms, which are tailored to each instrument, provide recomme
           </span></a>
       </div>
     </footer>
+
+
   </body>
 </html>
