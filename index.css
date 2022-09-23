@@ -54,7 +54,7 @@
   
   /* to group sections and add margins*/
   section {
-    margin: 150px 0px;
+    margin: 100px 0px;
   }
   
   /* for background images */
@@ -201,6 +201,6 @@
     font-size: 180%;
 }
 .social-media-list li a {
-    color: #888;
+    color: #e5e4cead;
     transition: color 0.5s;
 }
