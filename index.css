@@ -22,6 +22,7 @@
     background-color: #231832;
     background-image: url( 'images/layered-steps-haikei.svg' );
     background-size: contain;
+    overflow-x: hidden;
   }
 
   /* for all icons */
@@ -54,7 +55,7 @@
   
   /* to group sections and add margins*/
   section {
-    margin: 100px 0px;
+    margin: 70px 0px;
   }
   
   /* for background images */
@@ -146,6 +147,7 @@
   
   /* About Section */
   .aboutSection .aboutImg {
+    filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.5));
     height: 450px;
     width: 80%;
     margin-left: auto;
@@ -176,6 +178,7 @@
     font-size: 14px;
   }
   .portfolio-section .portfolio-image {
+    filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.5));
     height: 200px;
     width: 100%;
   }
