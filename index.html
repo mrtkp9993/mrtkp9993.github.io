@@ -13,9 +13,17 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="http://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Reenie+Beanie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9a6c5dbd71.js" crossorigin="anonymous"></script>
+    <link rel="preload" as="style" href="http://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Reenie+Beanie&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="http://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Reenie+Beanie&display=swap">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <noscript>
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Reenie+Beanie&display=swap">
+    </noscript>
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </noscript>
+    <script src="https://kit.fontawesome.com/9a6c5dbd71.js" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="index.css"/>
     <style type="text/css" href="css/styles.css"></style>
   </head>
