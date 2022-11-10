@@ -80,7 +80,8 @@
   
   /* to apply equal spacing between elements */
   .grid2,
-  .grid3 {
+  .grid3,
+  .grid4 {
     display: grid;
     /* place in twos */
     grid-template-columns: 1fr 1fr;
@@ -89,6 +90,9 @@
   .grid3 {
     /* place in three */
     grid-template-columns: repeat(3, 1fr);
+  }
+  .grid4 {
+    grid-template-columns: repeat(4, 1fr);
   }
   
   /* to create responsive in-line elements */
