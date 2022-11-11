@@ -203,6 +203,17 @@
     }
   }
 
+  @media (max-width: 800px) {
+    .portfolio-section .grid4 {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 550px) {
+      .portfolio-section .grid4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
   .social-media-list {
     list-style: none;
     margin-left: 0em;
