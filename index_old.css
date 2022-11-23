@@ -1,0 +1,296 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+  /* color theme and variables */
+  :root {
+    --accentColor: #C0366B;
+    --headerColor: #E5E4CE;
+    --paragraphColor: #E5E4CE;
+    --ease: all 0.4s ease;
+    --radius: 6px;
+  }
+
+  @font-face {
+    font-family: 'Material Icons';
+    src: url("https://fonts.googleapis.com/icon?family=Material+Icons");
+    font-display: block;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--headerColor);
+    padding: 0px 20px;
+    background: linear-gradient(to bottom right, #231832, #f56468);
+    background-size: contain;
+    overflow-x: hidden;
+  }
+
+  /* for all icons */
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin: 0px 3px;
+  }
+  
+  /* to apply colors */
+  .accentColor {
+    color: var(--accentColor);
+  }
+  .paragraph {
+    color: var(--paragraphColor);
+  }
+  
+  a {
+    color: var(--headerColor);
+    /* remove default underlining */
+    text-decoration: none;
+  }
+  
+  /* to center elements */
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  
+  /* to group sections and add margins*/
+  section {
+    margin: 70px 0px;
+  }
+  
+  /* for background images */
+  .backgroundFix {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* to create total separation between elements */
+  .flex-space-btw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* to apply equal spacing between elements */
+  .grid2,
+  .grid3,
+  .grid4 {
+    display: grid;
+    /* place in twos */
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .grid3 {
+    /* place in three */
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* to create responsive in-line elements */
+  .flex-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  /* wrap around elements and space on both sides */
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .bold {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  /* for a fancy scroll bar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+  /* scroll bar Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--accentColor);
+    border-radius: 10px;
+  }
+  
+  /* scroll bar Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--headerColor);
+  }
+  
+  .padChild {
+    padding: 15px;
+  }
+  
+  /* other styles */
+  
+  /* nav Section */
+  .topHeader .logo {
+    font-size: 52px;
+    font-family: 'Reenie Beanie', cursive;
+  }
+  @media (max-width: 500px) {
+    .topHeader .flex-space-btw {
+      display: block;
+      text-align: center;
+    }
+  }
+  
+  /* About Section */
+  .aboutSection .aboutImg {
+    filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.5));
+    height: 450px;
+    width: 80%;
+    margin-left: auto;
+    border-radius: 30px;
+  }
+  @media (max-width: 1000px) {
+    .aboutSection .aboutImg {
+      width: 80%;
+    }
+    @media (max-width: 800px) {
+      .aboutSection {
+        display: block;
+      }
+      .aboutSection .aboutImg {
+        display: none;
+      }
+    }
+  }
+  
+  /* experience section */
+  .experience-section .resume {
+    margin-top: 30px;
+    display: block;
+  }
+  
+  /* portfolio section */
+  .portfolio-section p {
+    font-size: 14px;
+  }
+  .portfolio-section .portfolio-image {
+    filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.5));
+    height: 200px;
+    width: 100%;
+  }
+  @media (max-width: 800px) {
+    .portfolio-section .grid3 {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 550px) {
+      .portfolio-section .grid3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .portfolio-section .grid4 {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 550px) {
+      .portfolio-section .grid4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  .social-media-list {
+    list-style: none;
+    margin-left: 0em;
+}
+
+.social-media-list li {
+    display: inline-block;
+    margin-right: 1em;
+    font-size: 180%;
+}
+.social-media-list li a {
+    color: #e5e4cead;
+    transition: color 0.5s;
+}
+
+/* From uiverse.io */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #4f4f4f;
+  border-radius: 4px;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  color: black;
+  z-index: 1;
+ }
+ 
+ .button:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+ }
+ 
+ .button:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #C0366B;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+ }
+ 
+ .button:hover {
+  color: #ffffff;
+  border: 1px solid #C0366B;
+ }
+ 
+ .button:hover:before {
+  top: -35%;
+  background-color: #C0366B;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+ }
+ 
+ .button:hover:after {
+  top: -45%;
+  background-color: #C0366B;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+ }

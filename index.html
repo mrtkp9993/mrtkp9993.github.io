@@ -2,155 +2,207 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Murat Koptur - Data Scientist - Personal Website</title>
-  <meta name="description" content="Murat Koptur - Personal Site - Data Science Blog & Projects" />
-  <meta name="author" content="Murat Koptur" />
-  <meta name="keywords" content="data science, statistics, data, machine learning, deep learning" />
-  <meta name='dmca-site-verification' content='Z3FSZHB5TVZmMkNyQlhFMjlORitOQT090' />
-  <meta name="yandex-verification" content="aa2d38ceefbdc4d3" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style"
-    href="http://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Reenie+Beanie&display=swap">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');"
-    href="http://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Reenie+Beanie&display=swap">
-  <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <noscript>
-    <link rel="stylesheet"
-      href="http://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Reenie+Beanie&display=swap">
-  </noscript>
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  </noscript>
-  <script src="https://kit.fontawesome.com/9a6c5dbd71.js" crossorigin="anonymous" defer></script>
-  <link rel="stylesheet" href="index.css" />
-  <style type="text/css" href="css/styles.css"></style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat Koptur - Data Scientist - Personal Website</title>
+    <meta name="description" content="Murat Koptur - Personal Site - Data Science Blog & Projects" />
+    <meta name="author" content="Murat Koptur" />
+    <meta name="keywords" content="data science, statistics, data, machine learning, deep learning" />
+    <meta name='dmca-site-verification' content='Z3FSZHB5TVZmMkNyQlhFMjlORitOQT090' />
+    <meta name="yandex-verification" content="aa2d38ceefbdc4d3" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-  <nav class='padChild topHeader'>
-    <div class='flex-space-btw'>
-      <a class="centered logo" data-aos="fade-right">Murat Koptur</a>
-      <ul class="social-media-list centered" data-aos="fade-left">
-        <li><a href="https://www.linkedin.com/in/muratkoptur/"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="https://github.com/mrtkp9993"><i class="fab fa-github"></i></a></li>
-        <li><a href="https://www.instagram.com/mrtkp9993/"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="mailto:muratkoptur@yandex.com"><i class="fa fa-envelope"></i></a></li>
-      </ul>
 
+  <!-- ***** Header ***** -->
+
+  <header class="header" role="banner" id="top">
+    <div class="row">
+        
+        <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-  <div class='container'>
-    <section class='grid2 aboutSection'>
-      <div class='centered'>
-        <div>
-          <h2>Hi, I'm Murat Koptur</h2>
-          <p class='paragraph'>I am a professional Data Scientist with
-            <script>document.write(new Date().getFullYear() - 2017)</script>+ years of experience building small to
-            large end-to-end data science solutions. My interests are data science, numerical analysis, and
-            mathematical/statistical modeling. When not playing with data, I’m enjoying spending time playing music and
-            working on digital art paintings.
-          </p>
-          <p>
-          <div>
-            <a href="https://disk.yandex.com.tr/i/ALJNEWhbHSPlOw" class="accentColor bold resume"><button type="button"
-                class="button">Resume / CV</button></a>
-            <a href="https://muratkoptur.com/MyDsProjects/" class="accentColor bold resume"><button type="button"
-                class="button">Data Science Blog & Projects</button></a>
+    <div class="header__text-box row">
+      <div class="header__text">
+        <h1 class="heading-primary">
+          <!-- Replace the following name with your name -->
+          <span>Hi, I'm Murat Koptur</span>
+        </h1>
+        <!-- Put a small paragraph about yourself -->
+        <p>A data scientist based in Istanbul, Turkey.</p>
+        <a href="#contact" class="btn btn--pink">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <!-- ***** Work ***** -->
+
+    <section class="work" id="work">
+      <div class="row">
+        <h2>My Noteworthy Works</h2>
+        <h4>Note: most of my projects are under NDA so I am unable to share those projects. If there is anything you would like to see further, please feel free to contact me.
+        </h4>
+        <br>
+        <div class="work__boxes">
+
+          <!-- Each div with the work__box class is a project. -->
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>AutoTS</h3>
+              <p>
+                One-click univariate time series modelling / forecasting tool. Please contact for licensing.              </p>
+
+              <div class="work__links">
+                <!--<a href="" target="_blank" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+                <a href="https://github.com/nisarhassan12/portfolio" title="View Source Code" target="_blank">
+                  <img src="./images/github.svg" class="work__code" alt="GitHub">
+                </a>-->
+              </div>
+            </div>
+            <div class="work__image-box">
+              <img src="./images/autots2.webp" class="work__image" alt="Project 1" />
+            </div>
           </div>
-          </p>
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>AutoAD</h3>
+              <p>
+                One-click anomaly detection tool. Please contact for licensing.
+              </p>
+
+              <div class="work__links">
+                <!--<a href="#" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+                <a href="#">
+                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
+                </a>-->
+              </div>
+            </div>
+            <div class="work__image-box">
+              <img src="./images/autoad.webp" class="work__image" alt="Project 1" />
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>tradesly, tradeslyFX & tradeslyPRO: AI Roboadvisor</h3>
+              <p>
+                Tradesly's AI algorithms, which are tailored to each instrument, provide recommendations for each day, maximizing profits while minimizing risk!
+                Available on Google Play Store!
+              </p>
+              <div class="work__links">
+                <a href="https://play.google.com/store/apps/details?id=com.tradesly.tradesly" class="link__text">
+                  Download Now! <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+            <div class="work__image-box">
+              <img src="./works/tradesly.webp" class="work__image" alt="Project 3" />
+            </div>
+          </div>
         </div>
       </div>
-      <div class='aboutImg backgroundFix' style="background-image: url(images/about.webp)" data-aos="fade-left"></div>
     </section>
-  </div>
-  <div class='container portfolio-section'>
-    <section>
-      <h2>Services</h2>
-      <div class='grid2'>
-        <a href="#">
-          <div class="portfolio-image backgroundFix" style='background-image: url(images/analysis.webp)'>
-          </div>
-          <h3 class="bold">Analysis</h3>
-          <p>
-            Perform predictive and prescriptive analytics for many different domains.
-          </p>
-        </a>
-        <a href="#">
-          <div class="portfolio-image backgroundFix" style='background-image: url(images/development.webp)'>
 
+    <!-- ***** Clients ***** -->
+
+
+
+    <!-- ***** About ***** -->
+
+    <section class="about" id="about">
+      <div class="row">
+        <h2>About Me</h2>
+        <div class="about__content">
+          <div class="about__text">
+            <!-- Replace the below paragraph with info about yourself -->
+            <p>
+                I am a professional Data Scientist with 5+ years of experience building small to large end-to-end data science solutions. My interests are data science, numerical analysis, and mathematical/statistical modeling. When not playing with data, I’m enjoying spending time playing music and working on digital art paintings.</p>
+            <!-- Provide a link to your resume -->
+            <a href="https://disk.yandex.com.tr/i/ALJNEWhbHSPlOw" class="btn">My Resume</a>
           </div>
-          <h3 class="bold">Development</h3>
-          <p>
-            Develop end-to-end data science solutions with desktop and mobile ends.
-          </p>
-        </a>
+
+          <div class="about__photo-container">
+            <!-- Add a nice photo of yourself -->
+            <img class="about__photo" src="./images/about.webp" alt="" />
+          </div>
+        </div>
       </div>
     </section>
-  </div>
-  <div class='container portfolio-section'>
-    <section>
-      <h2>Portfolio</h2>
-      <div class='grid4'>
-        <a href="#">
-          <div class="portfolio-image backgroundFix" style='background-image: url(images/autots2.webp)'>
-          </div>
-          <h3 class="bold">AutoTS</h3>
-          <p>
-            One-click univariate time series modelling / forecasting tool. Please contact for licensing.
-          </p>
-        </a>
-                  <a href="">
-            <div class="portfolio-image backgroundFix"
-              style='background-image: url(images/autoad.webp)'; background-color: #231832;'>
+  </main>
 
-            </div>
-            <h3 class="bold">AutoAD</h3>
-            <p>
-              One-click anomaly detection tool. Please contact for licensing.
-            </p>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.tradesly.tradesly">
-            <div class="portfolio-image backgroundFix" style='background-image: url(works/tradesly.webp)'>
-            </div>
-            <h3 class="bold">Tradesly & TradeslyFX & TradeslyPRO: AI Roboadvisor</h3>
-            <p>
-              Tradesly's AI algorithms, which are tailored to each instrument, provide recommendations for each day,
-              maximizing profits while minimizing risk! 
-              <br/>
-              Available on Google Play Store!
-            </p>
-          </a>
-          <a href="https://github.com/mrtkp9993">
-            <div class="portfolio-image backgroundFix"
-              style='background-image: url(https://github.com/mrtkp9993/mrtkp9993/raw/master/github-metrics.svg); background-color: #231832;'>
+  <!-- ***** Contact ***** -->
 
-            </div>
-            <h3 class="bold">Open-source GitHub Projects</h3>
-            <p>
-              My Open-source projects.
-            </p>
-          </a>
-
+  <section class="contact" id="contact">
+    <div class="row">
+      <h2>Get in Touch</h2>
+      <div class="contact__info">
+        <p>
+          Are you looking for a end-to-end data science solution? or looking for any kind of
+          consultation? or want to ask questions? or have some advice for me
+          or just want to say "Hi 👋" in any case feel free to Let me know. I
+          will do my best to respond back. The quickest way to reach out to
+          me is via an email.
+        </p>
+        <!-- Replace the email with yours -->
+        <a href="mailto:muratkoptur@yandex.com" class="btn">muratkoptur@yandex.com</a>
       </div>
-    </section>
-  </div>
-  
-  <footer class='padChild topHeader'>
-    <div class='flex'>
-      <a href='mailto:muratkoptur@yandex.com' class='right'>muratkoptur@yandex.com <span class="material-icons icon">
-          info
-        </span></a>
+    </div>
+  </section>
+
+  <!-- ***** Footer ***** -->
+
+  <footer role="contentinfo" class="footer">
+    <div class="row">
+      <!-- Update the links to point to your accounts -->
+      <ul class="footer__social-links">
+        <li class="footer__social-link-item">
+          <a href="https://twitter.com/mrtkp9993/" title="Link to Twitter Profile">
+            <img src="./images/twitter.svg" class="footer__social-image" alt="Twitter">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://github.com/mrtkp9993/" title="Link to Github Profile">
+            <img src="./images/github.svg" class="footer__social-image" alt="Github">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://www.linkedin.com/in/muratkoptur">
+            <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+          </a>
+        </li>
+      </ul>
+
+      <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
+      <p>
+        <quote>"Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less." - Marie Curie</quote>
+      </p>
+
     </div>
   </footer>
 
-
+  <a href="#top" class="back-to-top" title="Back to Top">
+    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
+  </a>
+  <script src="./index.js"></script>
 </body>
 
 </html>
