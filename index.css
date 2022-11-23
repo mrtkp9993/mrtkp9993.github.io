@@ -16,6 +16,17 @@
     src: url('./fonts/ReenieBeanie-Regular.ttf') format('woff');
 }
 
+.logo {
+    font-family: 'Reenie Beanie';
+    font-size: 1.5em;
+}
+
+@media(max-width:700px) {
+    .logo {
+        display: none;
+    }
+}
+
 @font-face {
     font-family: 'Jost';
     font-style: normal;
@@ -344,7 +355,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: var(--gutter-normal) 0;
 }
 
