@@ -11,12 +11,11 @@
 
   <url>
        <loc>https://muratkoptur.com/</loc>
-       <lastmod>2022-09-11T08:53:57+00:00</lastmod>
-       <changefreq>daily</changefreq>
   </url>
   <url>
        <loc>https://muratkoptur.com/MyDsProjects/</loc>
-       <lastmod>2022-09-17T12:32:59+00:00</lastmod>
-       <changefreq>daily</changefreq>
+  </url>
+    <url>
+       <loc>https://muratkoptur.com/autoad.html</loc>
   </url>
 </urlset>
