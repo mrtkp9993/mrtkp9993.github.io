@@ -206,10 +206,12 @@
 .home-text01 {
   font-size: 3rem;
   max-width: 450px;
+  color: var(--dl-color-gray-900);
 }
 .home-text02 {
   margin-top: var(--dl-space-space-twounits);
   margin-bottom: var(--dl-space-space-twounits);
+  color: var(--dl-color-gray-700);
 }
 .home-btn-group1 {
   display: flex;
@@ -243,12 +245,14 @@
 .home-text06 {
   font-size: 3rem;
   margin-bottom: var(--dl-space-space-threeunits);
+  color: var(--dl-color-gray-900);
 }
 .home-container3 {
   width: 100%;
   display: grid;
   grid-gap: var(--dl-space-space-twounits);
   grid-template-columns: 1fr 1fr;
+  color: var(--dl-color-gray-700);
 }
 .home-banner {
   width: 100%;
@@ -262,6 +266,7 @@
   text-align: center;
   font-weight: 600;
   margin-bottom: var(--dl-space-space-twounits);
+  color: var(--dl-color-gray-900);
 }
 .home-footer {
   width: 100%;
@@ -273,6 +278,7 @@
   padding-right: var(--dl-space-space-threeunits);
   padding-bottom: var(--dl-space-space-twounits);
   justify-content: space-between;
+  color: var(--dl-color-gray-900);
 }
 .home-icon-group1 {
   display: flex;
@@ -287,6 +293,7 @@
   width: 24px;
   height: 24px;
   text-decoration: none;
+  fill: var(--dl-color-gray-900);
 }
 @media(max-width: 1600px) {
   .home-header {
