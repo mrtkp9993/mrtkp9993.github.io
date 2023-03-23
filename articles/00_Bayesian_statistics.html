@@ -21,7 +21,7 @@
 <body class="libertinus">
     <header>
         <h1>A Brief Introduction to Bayesian Statistics</h1>
-        <p class="author">Murat Koptur <br> VERSION 0.1 - 23/03/2023</p>
+        <p class="author">Murat Koptur <br> VERSION 0.2 - 23/03/2023</p>
     </header>
 
     <div class="abstract">
@@ -303,7 +303,88 @@
             </ul>
             </p>
 
+            <h2>Bayesian Inference</h2>
+            <p>
+                Bayesian inference can be described in three steps:
+                <label for="sn-6" class="sidenote-toggle sidenote-number"></label>
+                <input type="checkbox" id="sn-6" class="sidenote-toggle" />
+                <span class="sidenote">Source: A. Gelman, J. B. Carlin, H. S. Stern, D. B. Dunson, A. Vehtari,D. B.
+                    Rubin, Bayesian data analysis, third edition, 2013.</span>
+            <ol>
+                <li>Setting up full probability model: For all observed and unobserved quantities, a joint probability
+                    distribution must be defined.
+                    <br>
+                    Suppose $y $ is observed data and $\theta $ is parameters. Then joint probability distribution is
+                    defined as
+                    $$
+                    p(\theta, y) = p(y|\theta)p(\theta).
+                    $$
+                    Here, $p(\theta) $ is prior distribution and $p(y|\theta) $ is the sampling distribution.
+                </li>
+                <li>
+                    Calculating the posterior distribution: After the data were observed, posterior distribution will be
+                    calculated with Bayes' theorem:
+                    $$
+                    p(\theta|y)=\frac{p(\theta)p(y|\theta)}{p(y)}\propto p(\theta)p(y|\theta)
+                    $$
+                </li>
+                <li>
+                    Model diagnostics: How well does the model fit the data? How sensitive are the results to the
+                    modeling assumptions in step 1? We will dive into tests a few chapters later.
+                </li>
+            </ol>
+
+            Posterior distribution has all the information about our parameters. But, in practice, we need some tools to
+            summarize
+            information. Graphically, if our parameter vector has low dimension (1-2), we can plot the distribution. If
+            our parameter vector has higher
+            dimension, we can plot marginal posterior distributions.
+
+            Numerically, we can use point estimation and interval estimation methods. For point estimations, we have
+            different options:
+            <ul>
+                <li>Posterior mode
+                    $$
+                    \hat{\theta}=\max_\theta[p(\theta|y)]
+                    $$
+                </li>
+                <li>
+                    Posterior mean
+                    $$
+                    \hat{\theta}=\mathbb{E}[\theta|y]=\int{y p(\theta|y) d\theta}
+                    $$
+                </li>
+            </ul>
+            For interval estimations, we can use:
+            <ul>
+                <li>(Credible interval) A $100(1-\alpha)\%$ credible interval for parameter $\theta $ is an interval
+                    $[a, b] $ such that the probability that $\theta $ lies in the interval is $1-\alpha$<label
+                        for="sn-7" class="sidenote-toggle sidenote-number"></label>
+                    <input type="checkbox" id="sn-7" class="sidenote-toggle" />
+                    <span class="sidenote">Source: <a
+                            href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1218/files/student_drive/8.2.pdf">Link</a></span>:
+                    $$
+                    p(\theta\in[a,b])=1-\alpha
+                    $$
+                    If parameter vector has a dimension bigger than one, this is called as credible region.
+                </li>
+                <li>Highest density region is the region with $100(1-\alpha)\%$ probability of containing $\theta$ with
+                    the shortest total length.</li>
+            </ul>
+            </p>
+
+            <h2>Prior Distribution Recommendations</h2>
+            <p>Stan (Bayesian inference package) has a great <a
+                    href="https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations">wiki</a> about selecting
+                prior distributions for analyses.</p> Historically, due to lack of necessary computation power and
+            methods,
+            conjugate priors were mostly selected for ease of calculation of the posterior. Today with faster computers
+            and
+            MCMC sampling methods, nearly any arbitrary posterior can be sampled.
+            </p>
+
             To be continued...
+
         </article>
     </main>
 
