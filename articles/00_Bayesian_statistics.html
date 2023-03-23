@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Brief Introduction to Bayesian Statistics</title>
-      <!-- HTML Meta Tags -->
+    <!-- HTML Meta Tags -->
     <meta name="description" content="Notes & Articles about math and statistics.">
 
     <!-- Facebook Meta Tags -->
@@ -24,8 +24,8 @@
     <meta name="twitter:description" content="Notes & Articles about math and statistics.">
     <meta name="twitter:image" content="https://muratkoptur.com/articles_og.png">
 
-  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
-        
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
     <link rel="stylesheet" href="https://latex.now.sh/style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script>
@@ -41,7 +41,7 @@
 <body class="libertinus">
     <header>
         <h1>A Brief Introduction to Bayesian Statistics</h1>
-        <p class="author">Murat Koptur <br> VERSION 0.2 - 23/03/2023</p>
+        <p class="author">Murat Koptur <br> VERSION 0.3 - 23/03/2023</p>
     </header>
 
     <div class="abstract">
@@ -246,6 +246,7 @@
                     </tr>
                 </tbody>
             </table>
+            <br>
             If you switch the door, you will win the car with probability $2/3$, so the switching strategy is a better
             strategy than not switching the doors.
             </p>
@@ -402,6 +403,141 @@
             and
             MCMC sampling methods, nearly any arbitrary posterior can be sampled.
             </p>
+
+            <h2>Model Diagnostics</h2>
+            <p>
+                Due to nature of MCMC algorithms, we need to make some posterior diagnostic tests. These tests are:
+            <ul>
+                <li>Checking traceplots: Sampling was done with multiple chains and and all chains are expected to have
+                    similar results.
+                </li>
+                <li>Checking convergence: All chains must converge.</li>
+                <li>Effective sample size (ESS): Suppose $m$ is the chain count, $n $ is length of a chain,
+                    $\hat{\rho_t}$ is estimated autocorrelation at lag $t $ and $T $ is the first positive odd number
+                    which makes
+                    $\hat{\rho_{T+1}}+\hat{\rho_{T+2}}$ sum is negative. Then effective sample size is defined as
+
+                    $$
+                    \hat{n}_\text{eff}=\frac{mn}{1+2\sum_{t=1}^T\hat{\rho}_t}.
+                    $$
+                    In practice, it is expected to be $\frac{\hat{n}_\text{eff}}{mn}>0.001.$
+                </li>
+                <li>Gelman-Rubin statistic: It is defined as ratio of between-chain variance to within-chain variance.
+                    We should run our chains until this value is close to 1.
+                </li>
+            </ul>
+            </p>
+
+            <h2>Information Criterions</h2>
+            <p>
+                To compare and select the best model for our data, we need to score models. To compare Bayesian models,
+                following statistics can be used:
+            <ul>
+                <li>Within-sample predictive accuracy
+
+                    $$
+                    \text{lppd}=\sum_{i=1}^N \log\int{p(y_i|\theta)p_{\text{post}}(\theta)}d\theta\approx\sum_{i=1}^N
+                    \log(\frac{1}{M}\sum_{j=1}^M p(y_j|\theta^{(j)}))
+                    $$
+                </li>
+                <li>
+                    Widely-Applicable Information Criterion (WAIC)
+
+                    $$
+                    \text{WAIC}=-2\text{lppd} + p_{\text{WAIC}}
+                    $$
+
+                    where
+
+                    $$
+                    p_{\text{WAIC}}=2\sum_{i=1}^N[\log(\frac{1}{M}\sum_{j=1}^M
+                    p(y_j|\theta^{(j)}))-\frac{1}{M}\sum_{j=1}^M p(y_j|\theta^{(j)})]
+                    $$
+                </li>
+                <li>
+                    Leave-One-Out Cross-Validation (LOO)
+
+                    $$
+                    \text{loo} = \sum_{i=1}^n \log p(y_i|y_{-i})
+                    $$
+
+                    where
+
+                    $$
+                    p(y_i|y_{-i})=\int p(y_i|\theta)p(\theta|y_{-i})d\theta
+                    $$
+
+                    is the leave-one-out predictive density given the data without the $i-$th data point.
+                </li>
+            </ul>
+            </p>
+
+            <h2>Hypothesis Tests & Significance Tests</h2>
+            <p>Suppose that $H_0 $ is the null hypothesis and $H_1 $ is the alternative hypothesis. From Bayes' theorem,
+                we can calculate corresponding posterior distributions, $p(H_0|D)=\frac{p(D|H_0)p(H_0)}{p(D)}$ and
+                $p(H_1|D)=\frac{p(D|H_1)p(H_1)}{p(D)}$, respectively. We can calculate the likelihood ratio
+
+                $$
+                \frac{p(H_0|D)}{p(H_1|D)} = \frac{p(D|H_0)}{p(D|H_1)}\frac{p(H_0)}{p(H_1)}
+                $$
+
+                In this expression, the $\frac{p(D|H_0)}{p(D|H_1)}$ ratio is called Bayes factor. In the table below,
+                you can
+                find interpretations of Bayes factors.
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>$\log_{10}(\text{Bayes Factor})$</th>
+                        <th>Bayes Factor</th>
+                        <th>Evidence (for $H_1$)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[-Inf,0[</td>
+                        <td>[0,1[</td>
+                        <td>Negative</td>
+                    </tr>
+                    <tr>
+                        <td>[0, 0.5[</td>
+                        <td>[1, 3.2[</td>
+                        <td>Weak</td>
+                    </tr>
+                    <tr>
+                        <td>[0.5, 1[</td>
+                        <td>[3.2, 10[</td>
+                        <td>Substantial</td>
+                    </tr>
+                    <tr>
+                        <td>[1, 1.5[</td>
+                        <td>[10, 32[</td>
+                        <td>Strong</td>
+                    </tr>
+                    <tr>
+                        <td>[1.5, 2[</td>
+                        <td>[32, 100[</td>
+                        <td>Very Strong</td>
+                    </tr>
+                    <tr>
+                        <td>[2, +Inf[</td>
+                        <td>[100, +Inf[</td>
+                        <td>Decisive</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            For testing parameter significance, we can use region of practical equivalence (ROPE). In this method,
+            The null value is declared to be rejected if the (89% or 95%) HDI falls completely outside the ROPE, and the
+            null value is
+            declared to be accepted if the 89%/95% HDI falls completely inside the ROPE. But how do we set the limits of
+            the ROPE? How big is "practically equivalent to the null value"? Since it depends on the particular
+            application domain and current
+            best practices there, there is typically no one right answer to this question.
+            </p>
+
+            <h2>Bayesian Regression Models</h2>
 
             To be continued...
 
