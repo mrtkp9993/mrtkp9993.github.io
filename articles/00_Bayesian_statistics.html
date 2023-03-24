@@ -41,7 +41,7 @@
 <body class="libertinus">
     <header>
         <h1>A Brief Introduction to Bayesian Statistics</h1>
-        <p class="author">Murat Koptur <br> VERSION 0.3 - 23/03/2023</p>
+        <p class="author">Murat Koptur <br> VERSION 1.0 - 24/03/2023</p>
     </header>
 
     <div class="abstract">
@@ -534,13 +534,116 @@
             declared to be accepted if the 89%/95% HDI falls completely inside the ROPE. But how do we set the limits of
             the ROPE? How big is "practically equivalent to the null value"? Since it depends on the particular
             application domain and current
-            best practices there, there is typically no one right answer to this question.
+            best practices there, there is typically no one right answer to this question. <label for="sn-8"
+                class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-8" class="sidenote-toggle" />
+            <span class="sidenote">Source: <a
+                    href="http://doingbayesiandataanalysis.blogspot.com/2013/08/how-much-of-bayesian-posterior.html">Link</a></span>
             </p>
 
             <h2>Bayesian Regression Models</h2>
+            <p>
+                Linear regression is basis of many models in statistical analysis. So we will start with it. A linear
+                regression model
+                with one dependent and one independent variable can be written as
+                $$
+                y=\hat{\beta}_0 + \hat{\beta}_1 x + \epsilon, \quad \epsilon\sim\text{Normal}(0,\sigma^2)
+                $$
+                Here, $\epsilon=y-\hat{y} $ is residuals. In Bayesian linear regression, prior distributions for
+                intercepts and coefficients can be selected as Normal / Student-T
+                distributions.
+            </p>
+            <p>
+                ANOVA models can be seen as linear regression models where the independent variables are dummy
+                variables. Similarly,
+                ANCOVA models can be seen as linear regression models where the independent variables can be dummy and
+                continuous. For Bayesian ANOVA and ANCOVA models, R2 family can be used as prior distributions.<label
+                    for="sn-9" class="sidenote-toggle sidenote-number"></label>
+                <input type="checkbox" id="sn-9" class="sidenote-toggle" />
+                <span class="sidenote">Source: <a
+                        href="http://mc-stan.org/rstanarm/reference/priors.html">Link</a></span>
+            </p>
+            <p>
+                Linear mixed effect models are used to analyze grouped or hierarchical data. These models can be
+                classified as follows<label for="sn-10" class="sidenote-toggle sidenote-number"></label>
+                <input type="checkbox" id="sn-10" class="sidenote-toggle" />
+                <span class="sidenote">Source: F. Korner-Nievergelt, T. Roth, S. von Felten, J. Guélat, B. Al-masi, P.
+                    Korner-Nievergelt, Bayesian Data Analysis in
+                    Ecology Using Linear Models with R, BUGS, and Stan, 2015.
+                </span>:
+            <ul>
+                <li>
+                    Complete pooling: Group structure is omitted.
+                    $$
+                    \begin{aligned}
+                    \hat{y}_i &= \beta_0 \\
+                    y_i&\sim \text{Normal}(\hat{y}_i, \sigma^2)
+                    \end{aligned}
+                    $$
+                </li>
+                <li>
+                    Partial pooling: Group means are weighted averages of the population mean and the unpooled group
+                    means.
+                    $$
+                    \begin{aligned}
+                    \hat{y}_i &= \beta_0 + b_{g_i} \\
+                    y_i&\sim \text{Normal}(\hat{y}_i, \sigma^2) \\
+                    b_g&\sim \text{Normal}(0, \sigma_b^2)
+                    \end{aligned}
+                    $$
+                </li>
+                <li>
+                    No pooling: Group means can be estimated separately for
+                    each group.
+                    $$
+                    \begin{aligned}
+                    \hat{y}_i &= \beta_{g_i} \\
+                    y_i&\sim \text{Normal}(\hat{y}_i, \sigma_{g_i}^2)
+                    \end{aligned}
+                    $$
+                </li>
+                Hyperprior or multivariate distributions can be used as prior distributions of parameters of these
+                models.
+            </ul>
+            </p>
+            <p>
+                What if our dependent variables are not continuous but binary variables, ratio variables, or count
+                variables?
+                In this case, generalized linear models can be used to model our variables. Generalized linear models
+                consists of three elements<label for="sn-11" class="sidenote-toggle sidenote-number"></label>
+                <input type="checkbox" id="sn-11" class="sidenote-toggle" />
+                <span class="sidenote">Source: <a
+                        href="https://www.wikiwand.com/en/Generalized_linear_model">Link</a></span>:
+            <ul>
+                <li>
+                    A distribution for modelling dependent variable $Y$,
+                </li>
+                <li>A linear predictor $\eta=X\beta$,</li>
+                <li>A link function $g $ such that $\mathbb{E}(Y|X)=\mu=g^{-1}(\eta) $.</li>
+            </ul>
+            If a generalized linear model contains both fixed and random effects, it is called generalized linear mixed
+            model. In
+            Bayesian modeling, priors for parameters of generalized linear models / generalized linear mixed models can
+            be selected
+            similarly to linear models / linear mixed effect models.
+            </p>
+            <p>
+                This text only examines models for cross-sectional data. Time-series and longitudinal data models will
+                not be explained
+                here.
+            </p>
+            <hr>
+            <p>
+                Thanks for reading! I hope you found this article informative and insightful. If you have any questions
+                or feedback,
+                please don't hesitate to reach out to me. I always appreciate hearing from my readers and learning how I
+                can improve my
+                writing. If you notice any errors or inaccuracies, please notify me, and I'll make the necessary
+                corrections.
 
-            To be continued...
-
+                How to contact me: <a href="mailto:muratkoptur@yandex.com">E-mail</a> <a
+                    href="https://www.linkedin.com/in/muratkoptur/">LinkedIn</a>
+            </p>
         </article>
     </main>
 
