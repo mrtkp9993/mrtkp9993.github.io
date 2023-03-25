@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KJJ2CWF');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Quick Introduction to Metric Spaces</title>
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="Notes & Articles about math and statistics.">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://muratkoptur.com/articles_index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Articles - Murat Koptur - Data Scientist">
+    <meta property="og:description" content="Notes & Articles about math and statistics.">
+    <meta property="og:image" content="https://muratkoptur.com/articles_og.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="muratkoptur.com">
+    <meta property="twitter:url" content="https://muratkoptur.com/articles_index.html">
+    <meta name="twitter:title" content="Articles - Murat Koptur - Data Scientist">
+    <meta name="twitter:description" content="Notes & Articles about math and statistics.">
+    <meta name="twitter:image" content="https://muratkoptur.com/articles_og.png">
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+    <link rel="stylesheet" href="https://latex.now.sh/style.css">
+    <style>
+        .example {
+            counter-increment: example;
+            display: block;
+            margin: 12px 0;
+            font-style: normal;
+            position: relative;
+        }
+
+        .example::before {
+            content: 'Example ' counter(example) '. ';
+            font-weight: bold;
+            font-style: normal;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="libertinus">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJJ2CWF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <h1>A Quick Introduction to Metric Spaces</h1>
+        <p class="author">Murat Koptur <br> VERSION 0.1 - 25/03/2023</p>
+    </header>
+
+    <main>
+        <article class="indent-pars">
+
+            <h2>Fundamental Definitions</h2>
+            <div class="definition">
+                A <em>metric space</em> is a set $S $ together with a function $d: S \times S \to [0,\infty) $
+                satisfying three conditions:
+                <ol>
+                    <li>$d(x,y)=0 \iff x=y $,</li>
+                    <li>$d(x,y)=d(y,x) $,</li>
+                    <li>$d(x,z)\leq d(x,y) + d(y, z) $ (Triangle inequality).</li>
+                </ol>
+                The nonnegative real number $d(x,y)$ is called the <em>distance</em> between $x $ and $y $. The function
+                $d $ is called a <em>metric</em> on the set $S $, also a metric space can be written as a pair $(S, d)$.
+            </div>
+            <div class="example">
+                The set $\mathbb{R}$ of real numbers, with the function
+                $$
+                d(x,y)=|x-y|
+                $$
+                is a metric space.
+            </div>
+            <div class="example">
+                Let d be a positive integer. Then $\mathbb{R}^d $ is the set of all ordered $d $-tuples of real numbers.
+                For $x=(x_1,x_2,\ldots,x_d)\in\mathbb{R}^d $ and $y=(y_1,y_2,\ldots,y_d)\in\mathbb{R}^d $, define
+                <ol>
+                    <li>$x\pm y=(x_1\pm y_1, x_2\pm y_2, \ldots, x_d\pm y_d) $,</li>
+                    <li>$|x|=\sqrt{x_1^2+x_2^2+\cdots+x_d^2} $.</li>
+                </ol>
+                Then we define $d-$<em>dimensional Euclidean space</em> to be the set $\mathbb{R}^d $ with the metric
+                $d(x,y)=|x-y| $.
+            </div>
+            <div class="definition"> Let $x_1,x_2,\ldots,y_1,y_2,\ldots y_d $ be 2-dimensional real numbers. Then
+                Cauchy's
+                inequality is defined as
+                $$
+                \left(\sum_{j=1}^d x_j y_j\right)^2\leq\left(\sum_{j=1}^d x_j^2\right)\left(\sum_{j=1}^d y_j^2\right)
+                $$
+            </div>
+            <div class="definition"> Let $x,y\in\mathbb{R}^d $. Then Minkowski's inequality is defined as
+                $$
+                |x+y|\leq|x|+|y|.
+                $$
+            </div>
+            <p>I'll give more fundamental definitions.</p>
+            <div class="definition">
+                Let $S $ be a metric space with metric $d $, and $T\subseteq S $. Then $T $ is also a metric space
+                with metric
+                $$
+                d_T(x,y)=d(x,y), \quad x,y\in T.
+                $$
+            </div>
+            <div class="definition">
+                Let $S $ be a metric space.
+                <ul>
+                    <li>The <em>diameter</em> of $A\subseteq S$ is
+                        $$
+                        \text{diam}A=\sup\{d(x,y): x,y\in A\}.
+                        $$
+                    </li>
+                    <li>The <em>distance</em> between nonempty sets $A, B \subseteq S $ is
+                        $$
+                        \text{dist}(A, B)=inf\{d(x,y):x\in A,y\in B\}.
+                        $$
+                    </li>
+                    <li>Let $x\in S $ and $r>0 $. The <em>open ball</em> with center $x $ and radius $r $ is defined as
+                        $$
+                        B_r(x)=\{y\in S:d(y,x)< r \}, $$ the <em>closed ball</em> with same center and radius is defined
+                            as $$
+                            \overline{B_r}(x)=\{y\in S:d(y,x)\leq r \}. $$
+                    </li>
+                    <li>
+                        Let $A\subseteq S$. An <em>interior point</em> of $A $ is a point $x $ so that
+                        $$
+                        B_\epsilon(x)\subseteq A
+                        $$
+                        for some $\epsilon>0$. A set $A $ is called an <em>open</em> set iff every point of
+                        $A$ is an
+                        interior point.
+                    </li>
+                    <li>Let $A\subseteq S$ and $x\in A$. Then $x $ is a <em>accumulation point</em> of $A $ iff
+                        for every $\epsilon>0 $
+                        $$A\cap(B_\epsilon(x)\setminus\{x\})\neq\emptyset.$$
+                        $A $ is <em>closed</em> iff it contains all of its accumulation points.
+                    </li>
+                    <li>
+                        A family $\mathcal{B}$ of open sets of a metric space $S $ is called a <em>base for the open
+                            sets</em> of $S $ iff, for every open set $A\subseteq S$, and every $x\in A$, there is
+                        $U\in\mathcal{B}$ such that $x\in U\subseteq A$.
+                    </li>
+                </ul>
+            </div>
+            <div class="theorem">
+                Let $S$ be a metric space. Then following statements are true:
+                <ul>
+                    <li>$\emptyset$ and $S $ are open sets.</li>
+                    <li>If $U $ and $V $ are open sets, then
+                        $U\cap V$ is also an open set.
+                    </li>
+                    <li>If $\mathcal{U} $ is any family of open sets, then
+                        $$
+                        \bigcup_{U\in\mathcal{U}}
+                        $$
+                        is also an open set.
+                    </li>
+                </ul>
+            </div>
+            <div class="theorem">
+                Let $S$ be a metric space. Then following statements are true:
+                <ul>
+                    <li>$\emptyset$ and $S $ are closed sets.</li>
+                    <li>If $U $ and $V $ are closed sets, then
+                        $U\cup V$ is also a closed set.
+                    </li>
+                    <li>If $\mathcal{U} $ is any family of closed sets, then
+                        $$
+                        \bigcap_{U\in\mathcal{U}}
+                        $$
+                        is also a closed set.
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Metric Structures</h2>
+            <h3>Functions on Metric Spaces</h3>
+            <p>
+                To be continued...
+            </p>
+            <hr>
+
+            <p>
+                Thanks for reading! I hope you found this article informative and insightful. If you have any questions
+                or feedback,
+                please don't hesitate to reach out to me. I always appreciate hearing from my readers and learning how I
+                can improve my
+                writing. If you notice any errors or inaccuracies, please notify me, and I'll make the necessary
+                corrections.
+
+                How to contact me: <a href="mailto:muratkoptur@yandex.com">E-mail</a> <a
+                    href="https://www.linkedin.com/in/muratkoptur/">LinkedIn</a>
+            </p>
+        </article>
+    </main>
+
+</body>
+
+</html>
