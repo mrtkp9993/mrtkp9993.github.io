@@ -55,7 +55,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <header>
         <h1>A Brief Introduction to Bayesian Statistics</h1>
-        <p class="author">Murat Koptur <br> VERSION 1.0 - 24/03/2023</p>
+        <p class="author">Murat Koptur <br> VERSION 1.1 - 25/03/2023</p>
     </header>
 
     <div class="abstract">
@@ -75,9 +75,11 @@
         <article class="indent-pars">
             <h2>Fundamental Definitions</h2>
             <p>
-                Probability theory is a mathematical framework that allows us to reason about experiments whose outcome
+                <em>Probability theory</em> is a mathematical framework that allows us to reason about experiments whose
+                outcome
                 is
-                uncertain. A probabilistic model is a mathematical model of a probabilistic experiment that satisfies
+                uncertain. A <em>probabilistic model</em> is a mathematical model of a probabilistic experiment that
+                satisfies
                 certain
                 mathematical properties (the axioms of probability theory), and which allows us to calculate
                 probabilities
@@ -93,12 +95,14 @@
                 </span>
             </p>
             <div class="definition">
-                A probabilistic model is defined by a triple $(\Omega, \mathcal{F}, \mathbb{P}) $, called a probability
+                A <em>probabilistic model</em> is defined by a triple $(\Omega, \mathcal{F}, \mathbb{P}) $, called a
+                probability
                 space, consists of the following three elements:
                 <ol>
-                    <li>$\Omega $ is the sample space, the set of possible experiment outcomes.</li>
-                    <li>$\mathcal{F} $ is a $\sigma $-algebra, a collection of subsets of $\Omega $.</li>
-                    <li>$\mathbb{P} $ is a probability measure, a function that assigns a nonnegative probability to
+                    <li>$\Omega $ is the <em>sample space</em>, the set of possible experiment outcomes.</li>
+                    <li>$\mathcal{F} $ is a <em>$\sigma $-algebra</em>, a collection of subsets of $\Omega $.</li>
+                    <li>$\mathbb{P} $ is a <em>probability measure</em>, a function that assigns a nonnegative
+                        probability to
                         every
                         set in the $\sigma $-algebra $\mathcal{F} $. <label for="sn-2"
                             class="sidenote-toggle sidenote-number"></label>
@@ -116,7 +120,7 @@
                 theory, please read <sup>2</sup>.
             </p>
             <div class="definition">Let $A $ and $B $ be events in discrete sample space $S, $ and $p(B)\neq0 $.
-                Then Bayes' theorem is stated as
+                Then <em>Bayes' theorem</em> is stated as
                 $$
                 p(A|B)=\frac{p(B|A)p(A)}{p(B)}.
                 $$
@@ -125,13 +129,13 @@
                     <li>
                         $p(A|B) $ is the probability of event $A $ occuring given that $B $ is true. It is also called
                         the
-                        posterior probability of $A $ given $B $.
+                        <em>posterior probability</em> of $A $ given $B $.
                     </li>
                     $p(B|A) $ is the probability of event $B $ occurring given that $A $ is true. It can be also be
-                    interpreted as the likelihood of $A $ given a fixed $B $.
+                    interpreted as the <em>likelihood</em> of $A $ given a fixed $B $.
                     </li>
                     <li>$p(A) $ and $p(B) $ are the probabilities of observing $A $ and $B $ respectively without any
-                        conditions; they are known as the prior probability and marginal probability.
+                        conditions; they are known as the <em>prior probability</em> and <em>marginal probability</em>.
                         <label for="sn-3" class="sidenote-toggle sidenote-number"></label>
                         <input type="checkbox" id="sn-3" class="sidenote-toggle" />
                         <span class="sidenote">Source: <a
@@ -173,7 +177,7 @@
                 updated.
             </p>
             <p>
-                There is another way to interpret Bayes' theorem: Diachronic interpretation.
+                There is another way to interpret Bayes' theorem: <em>Diachronic</em> interpretation.
                 Suppose that $H $ is our hypothesis and $D $ is our data. Then Bayes' theorem can be written as
                 $$
                 p(H|D) = \frac{p(D|H)p(H)}{p(D)}.
@@ -319,21 +323,23 @@
 
             <h2>Differences between Frequentist and Bayesian Statistics</h2>
             <p>
-                Regardless of which statistical approach, any statistical inference paradigm deals with three things:
+                Regardless of which statistical approach, any <em>statistical inference</em> paradigm deals with three
+                things:
             <ul>
-                <li>The quantities which we want to estimate or test, called parameters.</li>
-                <li>Observed and/or collected data.</li>
-                <li>Models which help us to relate data and parameters.</li>
+                <li>The quantities which we want to estimate or test, called <em>parameters</em>.</li>
+                <li>Observed and/or collected <em>data</em>.</li>
+                <li><em>Models</em> which help us to relate data and parameters.</li>
             </ul>
             In the frequentist view of probability:
             <ul>
-                <li>Data is random because they are observations of stochastic processes.</li>
-                <li>Model parameters are fixed because they remain constant during the sampling process.</li>
+                <li>Data is <em>random</em> because they are observations of stochastic processes.</li>
+                <li>Model parameters are <em>fixed</em> because they remain constant during the sampling process.</li>
             </ul>
             In Bayesian view of probability:
             <ul>
-                <li>Data is fixed.</li>
-                <li>Model parameters are treated and described probabilistically. And they are defined via probability
+                <li>Data is <em>fixed</em>.</li>
+                <li>Model parameters are treated and described <em>probabilistically</em>. And they are defined via
+                    probability
                     distributions.</li>
             </ul>
             </p>
@@ -346,7 +352,8 @@
                 <span class="sidenote">Source: A. Gelman, J. B. Carlin, H. S. Stern, D. B. Dunson, A. Vehtari,D. B.
                     Rubin, Bayesian data analysis, third edition, 2013.</span>
             <ol>
-                <li>Setting up full probability model: For all observed and unobserved quantities, a joint probability
+                <li><em>Setting up full probability model</em>: For all observed and unobserved quantities, a joint
+                    probability
                     distribution must be defined.
                     <br>
                     Suppose $y $ is observed data and $\theta $ is parameters. Then joint probability distribution is
@@ -357,14 +364,16 @@
                     Here, $p(\theta) $ is prior distribution and $p(y|\theta) $ is the sampling distribution.
                 </li>
                 <li>
-                    Calculating the posterior distribution: After the data were observed, posterior distribution will be
+                    <em>Calculating the posterior distribution</em>: After the data were observed, posterior
+                    distribution will be
                     calculated with Bayes' theorem:
                     $$
                     p(\theta|y)=\frac{p(\theta)p(y|\theta)}{p(y)}\propto p(\theta)p(y|\theta)
                     $$
                 </li>
                 <li>
-                    Model diagnostics: How well does the model fit the data? How sensitive are the results to the
+                    <em>Model diagnostics</em>: How well does the model fit the data? How sensitive are the results to
+                    the
                     modeling assumptions in step 1? We will dive into tests a few chapters later.
                 </li>
             </ol>
@@ -375,16 +384,17 @@
             our parameter vector has higher
             dimension, we can plot marginal posterior distributions.
 
-            Numerically, we can use point estimation and interval estimation methods. For point estimations, we have
+            Numerically, we can use <em>point estimation</em> and <em>interval estimation</em> methods. For point
+            estimations, we have
             different options:
             <ul>
-                <li>Posterior mode
+                <li><em>Posterior mode</em>
                     $$
                     \hat{\theta}=\max_\theta[p(\theta|y)]
                     $$
                 </li>
                 <li>
-                    Posterior mean
+                    <em>Posterior mean</em>
                     $$
                     \hat{\theta}=\mathbb{E}[\theta|y]=\int{y p(\theta|y) d\theta}
                     $$
@@ -392,7 +402,8 @@
             </ul>
             For interval estimations, we can use:
             <ul>
-                <li>(Credible interval) A $100(1-\alpha)\%$ credible interval for parameter $\theta $ is an interval
+                <li>(<em>Credible interval</em>) A $100(1-\alpha)\%$ credible interval for parameter $\theta $ is an
+                    interval
                     $[a, b] $ such that the probability that $\theta $ lies in the interval is $1-\alpha$<label
                         for="sn-7" class="sidenote-toggle sidenote-number"></label>
                     <input type="checkbox" id="sn-7" class="sidenote-toggle" />
@@ -403,7 +414,8 @@
                     $$
                     If parameter vector has a dimension bigger than one, this is called as credible region.
                 </li>
-                <li>Highest density region is the region with $100(1-\alpha)\%$ probability of containing $\theta$ with
+                <li><em>Highest density region</em> is the region with $100(1-\alpha)\%$ probability of containing
+                    $\theta$ with
                     the shortest total length.</li>
             </ul>
             </p>
@@ -422,11 +434,12 @@
             <p>
                 Due to nature of MCMC algorithms, we need to make some posterior diagnostic tests. These tests are:
             <ul>
-                <li>Checking traceplots: Sampling was done with multiple chains and and all chains are expected to have
+                <li><em>Checking traceplots</em>: Sampling was done with multiple chains and and all chains are expected
+                    to have
                     similar results.
                 </li>
-                <li>Checking convergence: All chains must converge.</li>
-                <li>Effective sample size (ESS): Suppose $m$ is the chain count, $n $ is length of a chain,
+                <li><em>Checking convergence</em>: All chains must converge.</li>
+                <li><em>Effective sample size</em> (ESS): Suppose $m$ is the chain count, $n $ is length of a chain,
                     $\hat{\rho_t}$ is estimated autocorrelation at lag $t $ and $T $ is the first positive odd number
                     which makes
                     $\hat{\rho_{T+1}}+\hat{\rho_{T+2}}$ sum is negative. Then effective sample size is defined as
@@ -436,7 +449,8 @@
                     $$
                     In practice, it is expected to be $\frac{\hat{n}_\text{eff}}{mn}>0.001.$
                 </li>
-                <li>Gelman-Rubin statistic: It is defined as ratio of between-chain variance to within-chain variance.
+                <li><em>Gelman-Rubin statistic</em>: It is defined as ratio of between-chain variance to within-chain
+                    variance.
                     We should run our chains until this value is close to 1.
                 </li>
             </ul>
@@ -447,7 +461,7 @@
                 To compare and select the best model for our data, we need to score models. To compare Bayesian models,
                 following statistics can be used:
             <ul>
-                <li>Within-sample predictive accuracy
+                <li><em>Within-sample predictive accuracy</em>
 
                     $$
                     \text{lppd}=\sum_{i=1}^N \log\int{p(y_i|\theta)p_{\text{post}}(\theta)}d\theta\approx\sum_{i=1}^N
@@ -455,7 +469,7 @@
                     $$
                 </li>
                 <li>
-                    Widely-Applicable Information Criterion (WAIC)
+                    <em>Widely-Applicable Information Criterion</em> (WAIC)
 
                     $$
                     \text{WAIC}=-2\text{lppd} + p_{\text{WAIC}}
@@ -469,7 +483,7 @@
                     $$
                 </li>
                 <li>
-                    Leave-One-Out Cross-Validation (LOO)
+                    <em>Leave-One-Out Cross-Validation</em> (LOO)
 
                     $$
                     \text{loo} = \sum_{i=1}^n \log p(y_i|y_{-i})
@@ -489,13 +503,14 @@
             <h2>Hypothesis Tests & Significance Tests</h2>
             <p>Suppose that $H_0 $ is the null hypothesis and $H_1 $ is the alternative hypothesis. From Bayes' theorem,
                 we can calculate corresponding posterior distributions, $p(H_0|D)=\frac{p(D|H_0)p(H_0)}{p(D)}$ and
-                $p(H_1|D)=\frac{p(D|H_1)p(H_1)}{p(D)}$, respectively. We can calculate the likelihood ratio
+                $p(H_1|D)=\frac{p(D|H_1)p(H_1)}{p(D)}$, respectively. We can calculate the <em>likelihood ratio</em>
 
                 $$
                 \frac{p(H_0|D)}{p(H_1|D)} = \frac{p(D|H_0)}{p(D|H_1)}\frac{p(H_0)}{p(H_1)}
                 $$
 
-                In this expression, the $\frac{p(D|H_0)}{p(D|H_1)}$ ratio is called Bayes factor. In the table below,
+                In this expression, the $\frac{p(D|H_0)}{p(D|H_1)}$ ratio is called <em>Bayes factor</em>. In the table
+                below,
                 you can
                 find interpretations of Bayes factors.
 
@@ -542,7 +557,8 @@
                 </tbody>
             </table>
             <br>
-            For testing parameter significance, we can use region of practical equivalence (ROPE). In this method,
+            For testing parameter significance, we can use <em>region of practical equivalence</em> (ROPE). In this
+            method,
             The null value is declared to be rejected if the (89% or 95%) HDI falls completely outside the ROPE, and the
             null value is
             declared to be accepted if the 89%/95% HDI falls completely inside the ROPE. But how do we set the limits of
@@ -557,7 +573,8 @@
 
             <h2>Bayesian Regression Models</h2>
             <p>
-                Linear regression is basis of many models in statistical analysis. So we will start with it. A linear
+                <em>Linear regression</em> is basis of many models in statistical analysis. So we will start with it. A
+                linear
                 regression model
                 with one dependent and one independent variable can be written as
                 $$
@@ -568,9 +585,10 @@
                 distributions.
             </p>
             <p>
-                ANOVA models can be seen as linear regression models where the independent variables are dummy
+                <em>ANOVA models</em> can be seen as linear regression models where the independent variables are dummy
                 variables. Similarly,
-                ANCOVA models can be seen as linear regression models where the independent variables can be dummy and
+                <em>ANCOVA models</em> can be seen as linear regression models where the independent variables can be
+                dummy and
                 continuous. For Bayesian ANOVA and ANCOVA models, R2 family can be used as prior distributions.<label
                     for="sn-9" class="sidenote-toggle sidenote-number"></label>
                 <input type="checkbox" id="sn-9" class="sidenote-toggle" />
@@ -578,7 +596,8 @@
                         href="http://mc-stan.org/rstanarm/reference/priors.html">Link</a></span>
             </p>
             <p>
-                Linear mixed effect models are used to analyze grouped or hierarchical data. These models can be
+                <em>Linear mixed effect models</em> are used to analyze grouped or hierarchical data. These models can
+                be
                 classified as follows<label for="sn-10" class="sidenote-toggle sidenote-number"></label>
                 <input type="checkbox" id="sn-10" class="sidenote-toggle" />
                 <span class="sidenote">Source: F. Korner-Nievergelt, T. Roth, S. von Felten, J. Guélat, B. Al-masi, P.
@@ -587,7 +606,7 @@
                 </span>:
             <ul>
                 <li>
-                    Complete pooling: Group structure is omitted.
+                    <em>Complete pooling</em>: Group structure is omitted.
                     $$
                     \begin{aligned}
                     \hat{y}_i &= \beta_0 \\
@@ -596,7 +615,8 @@
                     $$
                 </li>
                 <li>
-                    Partial pooling: Group means are weighted averages of the population mean and the unpooled group
+                    <em>Partial pooling</em>: Group means are weighted averages of the population mean and the unpooled
+                    group
                     means.
                     $$
                     \begin{aligned}
@@ -607,7 +627,7 @@
                     $$
                 </li>
                 <li>
-                    No pooling: Group means can be estimated separately for
+                    <em>No pooling</em>: Group means can be estimated separately for
                     each group.
                     $$
                     \begin{aligned}
@@ -623,20 +643,22 @@
             <p>
                 What if our dependent variables are not continuous but binary variables, ratio variables, or count
                 variables?
-                In this case, generalized linear models can be used to model our variables. Generalized linear models
+                In this case, <em>generalized linear models</em> can be used to model our variables. Generalized linear
+                models
                 consists of three elements<label for="sn-11" class="sidenote-toggle sidenote-number"></label>
                 <input type="checkbox" id="sn-11" class="sidenote-toggle" />
                 <span class="sidenote">Source: <a
                         href="https://www.wikiwand.com/en/Generalized_linear_model">Link</a></span>:
             <ul>
                 <li>
-                    A distribution for modelling dependent variable $Y$,
+                    A <em>distribution</em> for modelling dependent variable $Y$,
                 </li>
-                <li>A linear predictor $\eta=X\beta$,</li>
-                <li>A link function $g $ such that $\mathbb{E}(Y|X)=\mu=g^{-1}(\eta) $.</li>
+                <li>A <em>linear predictor</em> $\eta=X\beta$,</li>
+                <li>A <em>link function</em> $g $ such that $\mathbb{E}(Y|X)=\mu=g^{-1}(\eta) $.</li>
             </ul>
-            If a generalized linear model contains both fixed and random effects, it is called generalized linear mixed
-            model. In
+            If a generalized linear model contains both fixed and random effects, it is called <em>generalized linear
+                mixed
+                model</em>. In
             Bayesian modeling, priors for parameters of generalized linear models / generalized linear mixed models can
             be selected
             similarly to linear models / linear mixed effect models.
