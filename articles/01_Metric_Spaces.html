@@ -219,7 +219,7 @@
                 $$
                 d(h(x), h(y)) = rd(x,y)
                 $$
-                for all $x,y\in S $. Two metric spaces are called as <em>similar</em> iff there is an similarity
+                for all $x,y\in S $. Two metric spaces are called as <em>similar</em> iff there is a similarity
                 of one onto the other.
             </div>
             <div class="definition">
@@ -228,7 +228,10 @@
                 $$
                 d(x,y)&lt;\delta \Rightarrow d(h(x), h(y)) &lt; \epsilon
                 $$
-                The function $h$ is called <em>continous</em> iff it is continous at every point $x\in S$.
+                The function $h$ is called <em>continous</em> iff it is continuous at every point $x\in S$.
+            </div>
+            <div class="theorem">
+                A function $h:S\to T$ is continous iff $h^{-1}\left[V\right]$ is open in $S$ for all $V $ open in $T $.
             </div>
             <div class="definition">
                 A function $h:S\to T$ is a <em>homeomorphism</em> of $S$ onto $T$ iff it is bijective, and both
@@ -238,15 +241,72 @@
                 homeomorphism.
             </div>
 
+            <h2>Sequences in Metric Spaces</h2>
+            <div class="definition">
+                Let $S $ be a set. A <em>sequence</em> in $S $ is a function $f:\mathbb{N}\to S$ and it is defined by
+                the infinite list of values $f(1),f(2),\cdots$ and can be showed as
+                $$
+                (x_n)_{n\in\mathbb{N}}.
+                $$
+                A sequence $(x_n)$ in a metric space $S $ <em>converges</em> to the point $x\in S$ iff for every
+                $\epsilon>0$, there is $N\in\mathbb{N}$ such that $d(x_n,x)&lt;\epsilon$ for all $n\geq N$, can be
+                written as
+                $$
+                \lim_{n\to\infty}x_n=x.
+                $$
+                We say that the sequence is <em>convergent</em> iff it converges to some point.
+            </div>
+            <div class="theorem">
+                Let $(x_n)$ be a sequence in a metric space $S$. If $x_n\to a$ and $x_n\to b$, then $a=b$.
+            </div>
+            <div class="theorem">
+                Let $S $ and $T $ be metric spaces, and let $h:S\to T$ be a function. Then $h $ is continuous
+                iff for every sequence $(x_n)$ in S,
+                $$
+                x_n\to x \Longrightarrow h(x_n)\to h(x).
+                $$
+            </div>
+            <div class="definition">
+                Let $(x_n)$ be a sequence. If we choose an infinite subset of positive integers and list them in
+                ascending order
+                $k_1&lt;k_2&lt;k_3&lt;\cdots$, we form a new sequence, called a <em>subsequence</em> of $(x_n)$
+                $$
+                (x_{k_i})_{i\in\mathbb{N}}.
+                $$
+            </div>
+            <div class="definition">
+                Let $x_n$ be a sequence in a metric space $S $ and $x\in S$. We say that $x $ is a <em>cluster
+                    point</em>
+                of the sequence $(x_n)$ iff for every $\epsilon&gt;0$, and every $N\in\mathbb{N}$, there exists $n\geq
+                N$
+                with
+                $d(x_n,x)&lt;\epsilon$.
+            </div>
+            <div class="theorem">
+                The point $x$ is a cluster point of the sequence $(x_n)$ iff $x$ is the limit of some subsequence of
+                $(x_n)$.
+            </div>
+
+
             <p>
                 To be continued...
             </p>
+
+            <h2>References</h2>
+            <ol>
+                <li>Measure, Topology, and Fractal Geometry, Edgar Gerald.</li>
+            </ol>
+
             <hr>
 
+
+
             <p>
-                Thanks for reading! I hope you found this article informative and insightful. If you have any questions
+                Thanks for reading! I hope you found this article informative and insightful. If you have any
+                questions
                 or feedback,
-                please don't hesitate to reach out to me. I always appreciate hearing from my readers and learning how I
+                please don't hesitate to reach out to me. I always appreciate hearing from my readers and
+                learning how I
                 can improve my
                 writing. If you notice any errors or inaccuracies, please notify me, and I'll make the necessary
                 corrections.
