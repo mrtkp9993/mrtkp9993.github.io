@@ -70,7 +70,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <header>
         <h1>A Quick Introduction to Metric Spaces</h1>
-        <p class="author">Murat Koptur <br> VERSION 0.1 - 25/03/2023</p>
+        <p class="author">Murat Koptur <br> VERSION 0.2 - 27/03/2023</p>
     </header>
 
     <main>
@@ -196,8 +196,48 @@
                 </ul>
             </div>
 
-            <h2>Metric Structures</h2>
-            <h3>Functions on Metric Spaces</h3>
+            <h2>Functions on Metric Spaces</h2>
+            <div class="definition">
+                Suppose $S$ and $T $ are metric spaces. A function $h:S\to T $ is an <em>isometry</em> iff
+                $$
+                d_T(h(x), h(y)) = d_S(x,y)
+                $$
+                for all $x,y\in S $. Two metric spaces are called as <em>isometric</em> iff there is an isometry
+                of one onto the other. A property is called a <em>metric</em> property iff it is preserved by isometry.
+            </div>
+            <div class="theorem">The following statements are true:
+                <ol>
+                    <li>Any isometry with an invariant point is a <em>rotation</em> or a <em>reflection</em>.</li>
+                    <li>An isometry with no invariant point is a <em>translation</em> or a <em>glide-reflection</em>.
+                    </li>
+                </ol>
+            </div>
+            <div class="definition">
+                A function $h:S\to T$ is a <em>similarity</em> iff there is a positive number $r$, called as
+                <em>ratio</em>
+                of $h $, such that
+                $$
+                d(h(x), h(y)) = rd(x,y)
+                $$
+                for all $x,y\in S $. Two metric spaces are called as <em>similar</em> iff there is an similarity
+                of one onto the other.
+            </div>
+            <div class="definition">
+                Let $S $ and $T $ be metric spaces and $x\in S$. A function $h:S\to T$ is <em>continous</em> at $x$
+                iff, for every $\epsilon >0$, there is $\delta >0$ such that for all $y\in S$
+                $$
+                d(x,y)&lt;\delta \Rightarrow d(h(x), h(y)) &lt; \epsilon
+                $$
+                The function $h$ is called <em>continous</em> iff it is continous at every point $x\in S$.
+            </div>
+            <div class="definition">
+                A function $h:S\to T$ is a <em>homeomorphism</em> of $S$ onto $T$ iff it is bijective, and both
+                $h$ and $h^{-1}$ are continous. Two metric spaces are called as <em>homeomorphic</em> iff there is an
+                homeomorphism
+                of one onto the other. A property is called a <em>topological</em> property iff it is preserved by
+                homeomorphism.
+            </div>
+
             <p>
                 To be continued...
             </p>
