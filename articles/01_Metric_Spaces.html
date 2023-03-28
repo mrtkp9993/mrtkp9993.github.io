@@ -287,6 +287,57 @@
                 $(x_n)$.
             </div>
 
+            <h2>Completeness</h2>
+            <div class="definition">
+                A <em>Cauchy sequence</em> in a metric space $S$ is a sequence $(x_n)$ satisfying; for every
+                $\epsilon&gt;0$ there
+                is $N\in\mathbb{N}$ so that $d(x_n,x_m)&lt;\epsilon$ for all $n,m\geq N$.
+            </div>
+            <div class="theorem">Every convergent sequence is a Cauchy sequence.</div>
+            <div class="definition">
+                A metric space $S$ is <em>complete</em> iff every Cauchy sequence in $S$ converges in $S$.
+            </div>
+            <div class="definition">
+                The <em>closure</em> of a ser $A$ is the set $\bar{A}$, consisting of $A $ together with all of its
+                accumulation points. A set $A$ is <em>dense</em> in a set $B$ iff $\bar{A}=B$. A point $x$ that belongs
+                both to the closure of the set $A$ and to the closure of the complementary set $S\setminus A$ is called
+                a <em>boundary point</em> of $A$ and can be written as $\partial A$.
+            </div>
+
+            <h2>Contraction Mapping</h2>
+            <div class="definition">
+                A point $x$ is a <em>fixed point</em> of a function $f$ iff $f(x)=x$. A function $f:S\to S$ is a
+                <em>contraction</em> iff there is a constant $r&lt;1$ such that
+                $$
+                d(f(x), f(y)) \leq rd(x,y)
+                $$
+                for all $x,y\in S$.
+            </div>
+            <div class="theorem">The following statements are true:
+                <ol>
+                    <li>A contraction mapping $f$ on a complete nonempty metric space $S$ has a unique fixed point.</li>
+                    <li>Let $f$ be a contraction mapping on a complete metric space $S$. If $x_0$ is any point of $S$,
+                        and
+                        $$
+                        x_{n+1}=f(x_n), \quad n\geq 0,
+                        $$
+                        then the sequence $x_n$ converges to the fixed point of $f$.
+                    </li>
+                </ol>
+            </div>
+            <div class="definition">
+                A function $f:S\to T$ is a <em>Lipschitz</em> function iff there is a constant $B$ with
+                $$
+                d(f(x),f(y))\leq Bd(x,y), \forall x,y\in S.
+                $$
+                A function $f:S\to T$ is a <em>inverse Lipschitz</em> function iff there is a constant $A&gt;0$ with
+                $$
+                d(f(x),f(y))\geq Ad(x,y), \forall x,y\in S.
+                $$
+                A function $f:S\to T$ is a <em>lipeomorphism</em> iff it is both Lipschitz and inverse Lipschitz. Such a
+                function
+                $f$ is also called a <em>metric equivalence</em>.
+            </div>
 
             <p>
                 To be continued...
