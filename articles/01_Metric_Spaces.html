@@ -70,7 +70,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <header>
         <h1>A Quick Introduction to Metric Spaces</h1>
-        <p class="author">Murat Koptur <br> VERSION 0.2 - 27/03/2023</p>
+        <p class="author">Murat Koptur <br> VERSION 1.0 - 29/03/2023</p>
     </header>
 
     <main>
@@ -339,9 +339,52 @@
                 $f$ is also called a <em>metric equivalence</em>.
             </div>
 
-            <p>
-                To be continued...
-            </p>
+            <h2>Seperable and Compact Spaces</h2>
+            <div class="definition">
+                A family $\mathcal{U}$ of subsets of $S$ is said to <em>cover</em> a set iff $A$ is contained
+                in the union of the family $\mathcal{U}$. A family which covers a set is called as a <em>cover</em>
+                of the set. A cover consisting of a finite number of sets is called a <em>finite cover</em>. A
+                cover consisting of a countable number of sets is called a <em>countable cover</em>. An <em>open
+                    cover</em>
+                of a set $A $ is a cover of $A$ consisting only of open sets. If $\mathcal{U}$ is a cover of $A$,
+                then a <em>subcover</em> is a subfamily of $\mathcal{U}$ that still covers $A$.
+            </div>
+            <div class="theorem">
+                Let $S$ be a metric space. Then the following are equivalent:
+                <ol>
+                    <li>There is a countable set $D$ dense in $S$.</li>
+                    <li>There is a countable base for the open sets of $S$. (<em>second axiom of countability</em>)</li>
+                    <li>Every open cover of $S$ has a countable subcover. (<em>Lindelöf property</em>)</li>
+                </ol>
+                A metric space $S$ is <em>seperable</em> iff it has one (and therefore all) of the properties above.
+            </div>
+            <div class="definition">
+                A metric space $S$ is called <em>sequentially compact</em> iff every sequence in $S$ has at least one
+                cluster point (in $S$). A metric space $S$ is called <em>countably compact</em> iff every infinite
+                subset of $S$ has at least one accumulation point (in $S$). Let $\mathcal{F}$ be a family of subsets
+                of a set $S$. We say that $\mathcal{F}$ has the <em>finite intersection property</em> iff any
+                intersection
+                of finitely many sets from $\mathcal{F}$ is nonempty. A metric space $S $ is called <em>bicompact</em>
+                iff every family of closed sets with the finite intersection property has nonempty intersection.
+            </div>
+            <div class="theorem">
+                (<em>Heine–Borel theorem</em>) Let $a&lt;b$ be real numbers. Let $\mathcal{F}$ be a family of closed
+                subsets of of the interval $[a, b]$. If $\mathcal{F}$ has the finite intersection property, then
+                the intersection
+                $$
+                \bigcap_{F\in\mathcal{F}}F
+                $$
+                of the entire family is not empty.
+            </div>
+            <div class="theorem">
+                Let $S$ be a metric space. The following are equivalent:
+                <ol>
+                    <li>$S$ is sequentially compact,</li>
+                    <li>$S$ is countably compact,</li>
+                    <li>$S$ is bicompact.</li>
+                </ol>
+                A metric space $S$ is called <em>compact</em> iff has one (and therefore all) of the properties above.
+            </div>
 
             <h2>References</h2>
             <ol>
