@@ -1,33 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://muratkoptur.com/tradeslyPro/</loc>
-    </url>
-    <url>
         <loc>https://muratkoptur.com/404.html</loc>
-    </url>
-    <url>
-        <loc>https://muratkoptur.com/autoad.html</loc>
-    </url>
-    <url>
-        <loc>https://muratkoptur.com/autots.html</loc>
     </url>
     <url>
         <loc>https://muratkoptur.com/</loc>
     </url>
     <url>
-        <loc>https://muratkoptur.com/tradesly.html</loc>
-    </url>
-	<url>
-        <loc>https://muratkoptur.com/articles_index.html</loc>
-    </url>
-	<url>
-        <loc>https://muratkoptur.com/articles/00_Bayesian_statistics.html</loc>
+        <loc>https://muratkoptur.com/projects.html</loc>
     </url>
     <url>
-        <loc>https://muratkoptur.com/articles/01_Metric_Spaces.html</loc>
-    </url>
-	<url>
-        <loc>https://muratkoptur.com/projects.html</loc>
+        <loc>https://muratkoptur.com/tradesly.html</loc>
     </url>
 </urlset>
