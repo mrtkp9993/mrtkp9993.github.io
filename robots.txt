@@ -1,2 +1,4 @@
-user-agent: *
+User-agent: *
 disallow: /cdn-cgi/
+
+Sitemap: https://muratkoptur.com/sitemap-index.xml
