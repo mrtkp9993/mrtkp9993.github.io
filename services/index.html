@@ -30,8 +30,8 @@
 <!-- Google Tag Manager -->
 
 <!-- End Google Tag Manager -->
-  <link rel="stylesheet" href="/_astro/404.5dd15c8c.css" />
-<link rel="stylesheet" href="/_astro/_slug_.af480368.css" /><script type="module" src="/_astro/hoisted.b281b560.js"></script></head>
+  <link rel="stylesheet" href="/_astro/404.df67050b.css" />
+<link rel="stylesheet" href="/_astro/_slug_.af480368.css" /><script type="module" src="/_astro/hoisted.291c3cb7.js"></script></head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJJ2CWF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -55,9 +55,186 @@
 </div>
         <div class="md:flex md:justify-center">
           <div class="fixed inset-0 w-full h-full">
-    <canvas id="lifeCanvas" class="absolute w-full h-full bg-black"></canvas>
+    <canvas id="lifeCanvas" class="absolute w-full h-full bg-black -z-50"></canvas>
 </div>
-          <main class="relative z-10 p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+
+
+<script client:load>
+    class Particle {
+    constructor(x, y, parent = null) {
+    this.x = x;
+    this.y = y;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.life = 300 + Math.random() * 100;
+    this.maxLife = this.life;
+    this.age = 0;
+    this.size = 2;
+    this.energy = 1;
+    this.reproductionEnergy = 0;
+    this.parent = parent;
+    this.children = [];
+}
+
+    update(particles, width, height) {
+    this.age++;
+    this.life--;
+
+    this.energy = Math.max(0, Math.min(1, this.energy - 0.001));
+    if (this.energy > 0.7) {
+    this.reproductionEnergy += 0.01;
+}
+
+    const moveSpeed = 0.2 * (this.energy * 0.5 + 0.5);
+    this.vx += (Math.random() - 0.5) * 0.1 * moveSpeed;
+    this.vy += (Math.random() - 0.5) * 0.1 * moveSpeed;
+
+    this.vx *= 0.95;
+    this.vy *= 0.95;
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    const margin = 50;
+    if (this.x < margin) this.vx += 0.1;
+    if (this.x > width - margin) this.vx -= 0.1;
+    if (this.y < margin) this.vy += 0.1;
+    if (this.y > height - margin) this.vy -= 0.1;
+
+    particles.forEach(other => {
+    if (other === this || other === this.parent || this.children.includes(other)) return;
+
+    const dx = other.x - this.x;
+    const dy = other.y - this.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < 100) {
+    if (distance < 30 && this.energy > 0.3 && other.energy < 0.7) {
+    const transfer = 0.01;
+    this.energy -= transfer;
+    other.energy += transfer;
+}
+
+    const force = (distance - 50) * 0.0001;
+    this.vx += dx * force;
+    this.vy += dy * force;
+}
+});
+
+    if (this.reproductionEnergy > 1 && this.children.length < 2 && this.energy > 0.8) {
+    const childX = this.x + (Math.random() - 0.5) * 20;
+    const childY = this.y + (Math.random() - 0.5) * 20;
+    const child = new Particle(childX, childY, this);
+    this.children.push(child);
+    this.reproductionEnergy = 0;
+    this.energy *= 0.7;
+    return child;
+}
+
+    return null;
+}
+
+    isDead() {
+    return this.life < 0 || this.energy <= 0;
+}
+}
+
+    let animationFrame;
+    let particles = [];
+
+    function initAnimation() {
+    const canvas = document.getElementById('lifeCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+
+    function updateCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+    window.addEventListener('resize', updateCanvasSize);
+    updateCanvasSize();
+
+    particles = Array(60).fill(0).map(() => new Particle(
+    Math.random() * canvas.width,
+    Math.random() * canvas.height
+    ));
+
+    function animate() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const newParticles = [];
+    particles.forEach(particle => {
+    const child = particle.update(particles, canvas.width, canvas.height);
+    if (child) newParticles.push(child);
+
+    particles.forEach(other => {
+    if (other === particle) return;
+    const dx = other.x - particle.x;
+    const dy = other.y - particle.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < 100) {
+    ctx.beginPath();
+    ctx.moveTo(particle.x, particle.y);
+    ctx.lineTo(other.x, other.y);
+    const alpha = (1 - distance / 100) * 0.15 *
+    Math.min(particle.energy, other.energy);
+    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+    ctx.stroke();
+}
+});
+
+    const lifeRatio = particle.life / particle.maxLife;
+    ctx.beginPath();
+    ctx.arc(
+    particle.x,
+    particle.y,
+    particle.size * (0.5 + particle.energy * 0.5),
+    0,
+    Math.PI * 2
+    );
+    ctx.fillStyle = `rgba(255, 255, 255, ${lifeRatio * particle.energy * 0.8})`;
+    ctx.fill();
+});
+
+    particles = [...particles, ...newParticles]
+    .filter(p => !p.isDead())
+    .slice(0, 100);
+
+    while (particles.length < 20) {
+    particles.push(new Particle(
+    Math.random() * canvas.width,
+    Math.random() * canvas.height
+    ));
+}
+
+    animationFrame = requestAnimationFrame(animate);
+}
+
+    animate();
+
+    return () => {
+    if (animationFrame) {
+    cancelAnimationFrame(animationFrame);
+}
+    window.removeEventListener('resize', updateCanvasSize);
+};
+}
+
+    // Initialize animation when the component mounts
+    document.addEventListener('DOMContentLoaded', initAnimation);
+
+    // Cleanup on page navigation
+    document.addEventListener('astro:before-swap', () => {
+    if (animationFrame) {
+    cancelAnimationFrame(animationFrame);
+}
+});
+</script>
+          <main class="relative p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
             
   <div>
     <div class="text-3xl w-full font-bold mb-5">Services</div>
