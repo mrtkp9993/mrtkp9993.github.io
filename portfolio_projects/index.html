@@ -7,22 +7,22 @@
 <meta name="generator" content="Astro v2.7.3">
 
 <!-- Primary Meta Tags -->
-<title>Murat Koptur | Data Scientist | Portfolio</title>
-<meta name="title" content="Murat Koptur | Data Scientist | Portfolio">
-<meta name="description" content="Murat Koptur - Data Scientist - Data Science Blog &#38; Projects - Data Analysis &#38; End-to-End Data Science Solutions &#38; Tutoring Services - tradeslyFX AI Forex Roboadvisor &#38; Forex Signals - tradeslyPRO AI Crypto Roboadvisor">
+<title>Murat Koptur | Data Scientist | Software Engineer | Projects &amp; Portfolio</title>
+<meta name="title" content="Murat Koptur | Data Scientist | Software Engineer | Projects &#38; Portfolio">
+<meta name="description" content="Murat Koptur | Data Scientist | Software Engineer | Data Science Blog &#38; Projects | Data Analysis &#38; End-to-End Data Science Solutions &#38; Tutoring Services | tradeslyFX AI Forex Roboadvisor &#38; Forex Signals | tradeslyPRO AI Crypto Roboadvisor">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://muratkoptur.com/portfolio/">
-<meta property="og:title" content="Murat Koptur | Data Scientist | Portfolio">
-<meta property="og:description" content="Murat Koptur - Data Scientist - Data Science Blog &#38; Projects - Data Analysis &#38; End-to-End Data Science Solutions &#38; Tutoring Services - tradeslyFX AI Forex Roboadvisor &#38; Forex Signals - tradeslyPRO AI Crypto Roboadvisor">
+<meta property="og:url" content="https://muratkoptur.com/portfolio_projects/">
+<meta property="og:title" content="Murat Koptur | Data Scientist | Software Engineer | Projects &#38; Portfolio">
+<meta property="og:description" content="Murat Koptur | Data Scientist | Software Engineer | Data Science Blog &#38; Projects | Data Analysis &#38; End-to-End Data Science Solutions &#38; Tutoring Services | tradeslyFX AI Forex Roboadvisor &#38; Forex Signals | tradeslyPRO AI Crypto Roboadvisor">
 <meta property="og:image" content="https://muratkoptur.com/social_img.webp">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://muratkoptur.com/portfolio/">
-<meta property="twitter:title" content="Murat Koptur | Data Scientist | Portfolio">
-<meta property="twitter:description" content="Murat Koptur - Data Scientist - Data Science Blog &#38; Projects - Data Analysis &#38; End-to-End Data Science Solutions &#38; Tutoring Services - tradeslyFX AI Forex Roboadvisor &#38; Forex Signals - tradeslyPRO AI Crypto Roboadvisor">
+<meta property="twitter:url" content="https://muratkoptur.com/portfolio_projects/">
+<meta property="twitter:title" content="Murat Koptur | Data Scientist | Software Engineer | Projects &#38; Portfolio">
+<meta property="twitter:description" content="Murat Koptur | Data Scientist | Software Engineer | Data Science Blog &#38; Projects | Data Analysis &#38; End-to-End Data Science Solutions &#38; Tutoring Services | tradeslyFX AI Forex Roboadvisor &#38; Forex Signals | tradeslyPRO AI Crypto Roboadvisor">
 <meta property="twitter:image" content="https://muratkoptur.com/social_img.webp">
 
 <meta name="dmca-site-verification" content="Z3FSZHB5TVZmMkNyQlhFMjlORitOQT090">
@@ -30,7 +30,7 @@
 <!-- Google Tag Manager -->
 
 <!-- End Google Tag Manager -->
-  <link rel="stylesheet" href="/_astro/404.df67050b.css" />
+  <link rel="stylesheet" href="/_astro/404.fe2ea7ef.css" />
 <link rel="stylesheet" href="/_astro/_slug_.af480368.css" /><script type="module" src="/_astro/hoisted.291c3cb7.js"></script></head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -54,196 +54,90 @@
   </div>
 </div>
         <div class="md:flex md:justify-center">
-          <div class="fixed inset-0 w-full h-full">
-    <canvas id="lifeCanvas" class="absolute w-full h-full bg-black -z-50"></canvas>
-</div>
-
-
-<script client:load>
-    class Particle {
-    constructor(x, y, parent = null) {
-    this.x = x;
-    this.y = y;
-    this.vx = (Math.random() - 0.5) * 0.5;
-    this.vy = (Math.random() - 0.5) * 0.5;
-    this.life = 300 + Math.random() * 100;
-    this.maxLife = this.life;
-    this.age = 0;
-    this.size = 2;
-    this.energy = 1;
-    this.reproductionEnergy = 0;
-    this.parent = parent;
-    this.children = [];
-}
-
-    update(particles, width, height) {
-    this.age++;
-    this.life--;
-
-    this.energy = Math.max(0, Math.min(1, this.energy - 0.001));
-    if (this.energy > 0.7) {
-    this.reproductionEnergy += 0.01;
-}
-
-    const moveSpeed = 0.2 * (this.energy * 0.5 + 0.5);
-    this.vx += (Math.random() - 0.5) * 0.1 * moveSpeed;
-    this.vy += (Math.random() - 0.5) * 0.1 * moveSpeed;
-
-    this.vx *= 0.95;
-    this.vy *= 0.95;
-
-    this.x += this.vx;
-    this.y += this.vy;
-
-    const margin = 50;
-    if (this.x < margin) this.vx += 0.1;
-    if (this.x > width - margin) this.vx -= 0.1;
-    if (this.y < margin) this.vy += 0.1;
-    if (this.y > height - margin) this.vy -= 0.1;
-
-    particles.forEach(other => {
-    if (other === this || other === this.parent || this.children.includes(other)) return;
-
-    const dx = other.x - this.x;
-    const dy = other.y - this.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    if (distance < 100) {
-    if (distance < 30 && this.energy > 0.3 && other.energy < 0.7) {
-    const transfer = 0.01;
-    this.energy -= transfer;
-    other.energy += transfer;
-}
-
-    const force = (distance - 50) * 0.0001;
-    this.vx += dx * force;
-    this.vy += dy * force;
-}
-});
-
-    if (this.reproductionEnergy > 1 && this.children.length < 2 && this.energy > 0.8) {
-    const childX = this.x + (Math.random() - 0.5) * 20;
-    const childY = this.y + (Math.random() - 0.5) * 20;
-    const child = new Particle(childX, childY, this);
-    this.children.push(child);
-    this.reproductionEnergy = 0;
-    this.energy *= 0.7;
-    return child;
-}
-
-    return null;
-}
-
-    isDead() {
-    return this.life < 0 || this.energy <= 0;
-}
-}
-
-    let animationFrame;
-    let particles = [];
-
-    function initAnimation() {
-    const canvas = document.getElementById('lifeCanvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-
-    function updateCanvasSize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-
-    window.addEventListener('resize', updateCanvasSize);
-    updateCanvasSize();
-
-    particles = Array(60).fill(0).map(() => new Particle(
-    Math.random() * canvas.width,
-    Math.random() * canvas.height
-    ));
-
-    function animate() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    const newParticles = [];
-    particles.forEach(particle => {
-    const child = particle.update(particles, canvas.width, canvas.height);
-    if (child) newParticles.push(child);
-
-    particles.forEach(other => {
-    if (other === particle) return;
-    const dx = other.x - particle.x;
-    const dy = other.y - particle.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    if (distance < 100) {
-    ctx.beginPath();
-    ctx.moveTo(particle.x, particle.y);
-    ctx.lineTo(other.x, other.y);
-    const alpha = (1 - distance / 100) * 0.15 *
-    Math.min(particle.energy, other.energy);
-    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-    ctx.stroke();
-}
-});
-
-    const lifeRatio = particle.life / particle.maxLife;
-    ctx.beginPath();
-    ctx.arc(
-    particle.x,
-    particle.y,
-    particle.size * (0.5 + particle.energy * 0.5),
-    0,
-    Math.PI * 2
-    );
-    ctx.fillStyle = `rgba(255, 255, 255, ${lifeRatio * particle.energy * 0.8})`;
-    ctx.fill();
-});
-
-    particles = [...particles, ...newParticles]
-    .filter(p => !p.isDead())
-    .slice(0, 100);
-
-    while (particles.length < 20) {
-    particles.push(new Particle(
-    Math.random() * canvas.width,
-    Math.random() * canvas.height
-    ));
-}
-
-    animationFrame = requestAnimationFrame(animate);
-}
-
-    animate();
-
-    return () => {
-    if (animationFrame) {
-    cancelAnimationFrame(animationFrame);
-}
-    window.removeEventListener('resize', updateCanvasSize);
-};
-}
-
-    // Initialize animation when the component mounts
-    document.addEventListener('DOMContentLoaded', initAnimation);
-
-    // Cleanup on page navigation
-    document.addEventListener('astro:before-swap', () => {
-    if (animationFrame) {
-    cancelAnimationFrame(animationFrame);
-}
-});
-</script>
           <main class="relative p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
             
-  <div>
+        <div class="text-3xl w-full font-bold mb-5">Projects</div>
+    <p>
+        I've applied my data science skills to various my own projects.
+    </p>
+
+    <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+  <a href="/tprodesktop_brochure.pdf" target="_blank">
+    <div class="hero-content flex-col md:flex-row">
+      <img alt="TradeslyPRO Desktop" class="max-w-full md:max-w-[13rem] rounded-lg" width="750" height="422" src="/_astro/tprod_23WqB3.webp" loading="lazy" decoding="async">
+      <div class="grow w-full">
+        <h1 class="text-xl font-bold">
+          TradeslyPRO Desktop
+          
+        </h1>
+        <p class="py-1 text-1xl">TradeslyPRO Desktop is most feature rich robo-advisor of mine: generate signals with advanced machine learning algorithms, backtest them properly with historical data, determines market / instrument regimes, automated techincal analysis, price action analysis, custom developed Tradesly© Expected Excess Return Rank Indicator for stock performances, portfolio optimization / construction, and more. Please contact for licensing.</p>
+        <div class="card-actions justify-end">
+          
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="divider my-0"></div>
+    <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+  <a href="https://play.google.com/store/apps/details?id=com.tradesly.tradeslypro" target="_blank">
+    <div class="hero-content flex-col md:flex-row">
+      <img alt="TradeslyPRO Cryptocurrency AI Robo-Advisor" class="max-w-full md:max-w-[13rem] rounded-lg" width="750" height="422" src="/_astro/tpro_Z7UKRq.webp" loading="lazy" decoding="async">
+      <div class="grow w-full">
+        <h1 class="text-xl font-bold">
+          TradeslyPRO Cryptocurrency AI Robo-Advisor
+          
+        </h1>
+        <p class="py-1 text-1xl">TradeslyPRO is a cryptocurrency trading app that uses artificial intelligence and machine learning to offer you the best stock tracker and robo-advisor features. It helps you track prices, discover opportunities, and invest in cryptocurrencies. TradeslyPRO is designed for traders who want to trade safer and easier in the cryptocurrency market. Contains more features than TradeslyFX: Generates new alphas with genetic algorithms and backtests them with historical data, determines market status and prices anomalies, and more.</p>
+        <div class="card-actions justify-end">
+          
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="divider my-0"></div>
+    <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+  <a href="https://play.google.com/store/apps/details?id=com.tradesly.tradeslyfx" target="_blank">
+    <div class="hero-content flex-col md:flex-row">
+      <img alt="TradeslyFX Forex AI Robo-Advisor" class="max-w-full md:max-w-[13rem] rounded-lg" width="750" height="422" src="/_astro/tfx_Hv2VO.webp" loading="lazy" decoding="async">
+      <div class="grow w-full">
+        <h1 class="text-xl font-bold">
+          TradeslyFX Forex AI Robo-Advisor
+          
+        </h1>
+        <p class="py-1 text-1xl">TradeslyFX is a forex trading app that uses machine learning and data analytics to provide you with the best stock tracker and robo-advisor features. It helps you monitor the market, analyze trends, and execute trades. TradeslyFX is designed for traders who want to trade smarter and faster in the forex market.</p>
+        <div class="card-actions justify-end">
+          
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="divider my-0"></div>
+    <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+  <a target="_blank">
+    <div class="hero-content flex-col md:flex-row">
+      <img alt="AutoML App Suite" class="max-w-full md:max-w-[13rem] rounded-lg" width="750" height="422" src="/_astro/col_1pyrx5.webp" loading="lazy" decoding="async">
+      <div class="grow w-full">
+        <h1 class="text-xl font-bold">
+          AutoML App Suite
+          
+        </h1>
+        <p class="py-1 text-1xl">AutoML App Suite: AutoML App Suite is a collection of one-click tools that automate various data science tasks. AutoTS handles time series modeling and forecasting with state-of-the-art algorithms. AutoAD detects anomalies in univariate and multivariate datasets using advanced algorithms. AutoCS calculates, models, and generates customer success metrics from invoice data. AutoML App Suite simplifies data science for you. Please contact for licensing.</p>
+        <div class="card-actions justify-end">
+          
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
     <div class="text-3xl w-full font-bold mb-5">Portfolio</div>
     <p>
-      As a data scientist, I have applied my knowledge and skills to devise
-      unique solutions tailored to address diverse problems encountered by
-      clients.
+        As a data scientist, I solve complex problems with innovative data-driven solutions.
     </p>
-  </div>
+
 
   <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
   <a target="_blank">
@@ -365,17 +259,13 @@
     <ul class="menu grow shrink menu-md overflow-y-auto">
   <li><a class="py-3 text-base" id="home" href="/">Home</a></li>
   <li><a class="py-3 text-base" id="services" href="/services">Services</a></li>
-  <li><a class="py-3 text-base" id="projects" href="/projects">Projects</a></li>
-  <li>
-    <a class="py-3 text-base" id="projects" href="/portfolio">Portfolio</a>
-  </li>
+  <li><a class="py-3 text-base" id="portfolio_projects" href="/portfolio_projects">Projects & Portfolio</a></li>
   <li>
     <a class="py-3 text-base" id="blogposts" href="/publications">Publications</a>
   </li>
   <li>
     <a class="py-3 text-base" id="blog" href="/blog">Blog</a>
   </li>
-  <li><a class="py-3 text-base" id="cv" href="/cv">CV</a></li>
   <li>
     <a class="py-3 text-base" id="tradesly" href="/tradesly">tradesly AI Robo-advisor</a>
   </li>
@@ -384,7 +274,7 @@
   </li>
 </ul>
 
-<script>(function(){const sideBarActiveItemID = "portfolio";
+<script>(function(){const sideBarActiveItemID = "portfolio_projects";
 const activeClass = "bg-base-300";
 
   const activeItemElem = document.getElementById(sideBarActiveItemID);
