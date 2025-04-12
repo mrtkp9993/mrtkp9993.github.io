@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>Murat Koptur | Software Developer | Publications</title>
+    <meta name="title" content="Murat Koptur | Software Developer | Publications" />
+    <meta name="description" content='Murat Koptur | Software Developer | Blog & Projects' />
+    <link rel="canonical" href="https://muratkoptur.com/publications"/>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://muratkoptur.com/publications" />
+    <meta property="og:title" content="Murat Koptur | Software Developer | Publications" />
+    <meta property="og:description" content='Murat Koptur | Software Developer | Blog & Projects' />
+    <meta property="og:image" content="imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="http://muratkoptur.com/publications" />
+    <meta property="twitter:title" content="Murat Koptur | Software Developer | Publications" />
+    <meta property="twitter:description" content='Murat Koptur | Software Developer | Blog & Projects' />
+    <meta property="twitter:image" content="imgs/social.webp" />
+
+    <link
+            rel="stylesheet"
+            href="css/pico.classless.min.css"
+    >
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <hgroup>
+                <h1>murat koptur</h1>
+                <p>software developer</p>
+            </hgroup>
+        </ul>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/publications"><u>publications</u></a></li>
+            <li><a href="/projects">projects</a></li>
+            <li><a href="https://github.com/mrtkp9993">github</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="publications">
+    </section>
+</main>
+
+<footer>
+    <small id="footer-text"></small>
+</footer>
+<script>
+    const footer = document.getElementById('footer-text');
+    footer.textContent = `© ${new Date().getFullYear()} Murat Koptur`;
+
+    fetch('/data/publications.json')
+        .then(response => response.json())
+        .then(publications => {
+            const app = document.getElementById('publications');
+
+            // Iterate over the years
+            publications.forEach(yearData => {
+                // Create a year heading
+                const yearHeading = document.createElement('h1');
+                yearHeading.textContent = yearData.year;
+                app.appendChild(yearHeading);
+
+                // Create an ordered list for publications
+                const publicationList = document.createElement('ol');
+
+                // Iterate over the publications
+                yearData.publications.forEach(pub => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                            ${pub.title}
+                            <a href="${pub.link}" target="_blank">Full-Text HTML</a>
+                        `;
+                    publicationList.appendChild(listItem);
+                });
+
+                app.appendChild(publicationList);
+            });
+        })
+        .catch(error => console.error('Error fetching publications:', error));
+</script>
+</body>
+</html>

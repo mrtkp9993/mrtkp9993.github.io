@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>Murat Koptur | Software Developer | Projects</title>
+    <meta name="title" content="Murat Koptur | Software Developer | Projects" />
+    <meta name="description" content='Murat Koptur | Software Developer | Blog & Projects' />
+    <link rel="canonical" href="https://muratkoptur.com/projects"/>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://muratkoptur.com/projects" />
+    <meta property="og:title" content="Murat Koptur | Software Developer | Projects" />
+    <meta property="og:description" content='Murat Koptur | Software Developer | Blog & Projects' />
+    <meta property="og:image" content="imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="http://muratkoptur.com/projects" />
+    <meta property="twitter:title" content="Murat Koptur | Software Developer | Projects" />
+    <meta property="twitter:description" content='Murat Koptur | Software Developer | Blog & Projects' />
+    <meta property="twitter:image" content="imgs/social.webp" />
+
+    <link
+            rel="stylesheet"
+            href="css/pico.classless.min.css"
+    >
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <hgroup>
+                <h1>murat koptur</h1>
+                <p>software developer</p>
+            </hgroup>
+        </ul>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/publications">publications</a></li>
+            <li><a href="/projects"><u>projects</u></a></li>
+            <li><a href="https://github.com/mrtkp9993">github</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="projects">
+    </section>
+</main>
+
+<footer>
+    <small id="footer-text"></small>
+</footer>
+<style>
+    .project-image {
+        width: 250px; /* Set desired width */
+        height: 100px; /* Set desired height */
+        object-fit: cover; /* Ensures the image fits within the dimensions */
+        border-radius: 8px; /* Optional: Add rounded corners */
+    }
+</style>
+
+<script>
+    fetch('/data/projects.json')
+        .then(response => response.json())
+        .then(projects => {
+            const projectsSection = document.getElementById('projects');
+
+            projects.forEach(project => {
+                // Create the article element
+                const article = document.createElement('article');
+
+                // Create the header
+                const header = document.createElement('header');
+                header.textContent = project.title;
+                article.appendChild(header);
+
+                // Create the body
+                const body = document.createElement('div');
+                body.innerHTML = `
+                    <hgroup>
+                    <img src="${project.img}" alt="${project.title}" class="project-image">
+                    <p>${project.desc}</p>
+                    </hgroup>
+                `;
+                article.appendChild(body);
+
+                // Create the footer
+                const footer = document.createElement('footer');
+                if (project.link) {
+                    footer.innerHTML = `<a href="${project.link}" target="_blank">Learn More</a>`;
+                }
+                article.appendChild(footer);
+
+                // Append the article to the projects section
+                projectsSection.appendChild(article);
+            });
+        })
+        .catch(error => console.error('Error fetching projects:', error));
+
+    const footer = document.getElementById('footer-text');
+    footer.textContent = `© ${new Date().getFullYear()} Murat Koptur`;
+</script>
+</body>
+</html>

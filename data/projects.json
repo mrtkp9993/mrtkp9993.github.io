@@ -1,0 +1,43 @@
+[
+  {
+    "title": "TradeslyPRO Cryptocurrency AI Robo-Advisor",
+    "desc": "AI-powered crypto trading signals app with alpha factor generation, market analysis. Please contact for more information.",
+    "img": "/imgs/tpro.webp",
+    "link": "/extras/tpro_brochure.pdf"
+  },
+  {
+    "title": "TradeslyFX Forex AI Robo-Advisor",
+    "desc": "ML-powered forex trading signals app. Please contact for more information.",
+    "img": "/imgs/tfx.webp"
+  },
+  {
+    "title": "AutoML App Suite",
+    "desc": "One-click data science tools including AutoTS for time series forecasting, AutoAD for anomaly detection, and AutoCS for customer success metrics. Contact for licensing.",
+    "img": "/imgs/col.webp"
+  },
+  {
+    "title": "Pre-Covid and Post-Covid Twitter sentiment analysis",
+    "desc": "Analysis of Twitter sentiment shifts before and after Covid-19 using NLP. Reveals social and emotional impacts of the pandemic through social media data analysis.",
+    "img": "/imgs/sentiment1.webp"
+  },
+  {
+    "title": "Image Forgery Localization with Deep Learning",
+    "desc": "Deep learning model for detecting and visualizing manipulated regions in images. Creates masks to highlight forged areas for digital forensics.",
+    "img": "/imgs/imageforgery.webp"
+  },
+  {
+    "title": "Text summarization with PageRank",
+    "desc": "Enhanced text summarization using cosine distance and PageRank algorithms. Generates concise summaries by combining semantic similarity with sentence importance scoring.",
+    "img": "/imgs/pagerank.webp"
+  },
+  {
+    "title": "Website Clustering and Classification with ML",
+    "desc": "ML system for clustering and classifying web pages using word vectors. Groups similar content and categorizes new pages to improve content organization.",
+    "img": "/imgs/tc.webp"
+  },
+  {
+    "title": "Multi-class weather recognition from still image with Deep Learning",
+    "desc": "CNN-based model for classifying weather conditions from images. Enables automated weather monitoring.",
+    "img": "/imgs/weather.webp"
+  }
+]

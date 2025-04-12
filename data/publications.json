@@ -1,0 +1,334 @@
+[
+  {
+    "year": 2017,
+    "publications": [
+      {
+        "title": "Bazı Fark Denklemleri ve Uygulamaları",
+        "link": "https://www.researchgate.net/publication/337198993_Bazi_Fark_Denklemleri_ve_Uygulamalari"
+      },
+      {
+        "title": "Makine Öğrenimi Nedir?",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/24/makine-ogrenimi-nedir/"
+      },
+      {
+        "title": "Makine Öğrenimi Teknikleri",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/25/makine-ogrenmesi-teknikleri/"
+      },
+      {
+        "title": "Sınıflandırma (Classification)",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/26/siniflandirma-classification/"
+      },
+      {
+        "title": "Regresyon (Regression)",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/27/regresyon-regression/"
+      },
+      {
+        "title": "Doğrusal Regresyon (Linear Regression)",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/28/dogrusal-regresyon/"
+      },
+      {
+        "title": "Polinom Regresyonu (Polynomial Regression)",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/29/polinom-regresyonu-polynomial-regression/"
+      },
+      {
+        "title": "Yanlılık/Varyans İkilemi (Bias/Variance Tradeoff)",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/30/yanlilikvaryans-ikilemi-biasvariance-tradeoff/"
+      },
+      {
+        "title": "Düzenlileştirme (Regularization)",
+        "link": "https://makineogrenimi.wordpress.com/2017/05/31/duzenlilestirme-regularization/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 1",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/01/destek-vektor-makineleri-support-vector-machines-svms-1/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 2",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/02/destek-vektor-makineleri-support-vector-machines-svms-2/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 3",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/03/destek-vektor-makineleri-support-vector-machines-svms-3/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 4",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/04/destek-vektor-makineleri-support-vector-machines-svms-4/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 5",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/05/destek-vektor-makineleri-support-vector-machines-svms-5/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 6",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/06/destek-vektor-makineleri-support-vector-machines-svms-6/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 7",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/07/destek-vektor-makineleri-support-vector-machines-svms-7/"
+      },
+      {
+        "title": "Destek Vektör Makineleri (Support Vector Machines - SVMs) - 8",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/08/destek-vektor-makineleri-support-vector-machines-svms-8/"
+      },
+      {
+        "title": "Rastgele Ağaçlar ile Kredi kartı dolandırıcılık tespiti",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/09/rastgele-agaclar-ile-kredi-karti-dolandiricilik-tespiti/"
+      },
+      {
+        "title": "Karar Ağaçları (Decision Trees) - 1",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/10/karar-agaclari-decision-trees-1/"
+      },
+      {
+        "title": "Karar Ağaçları (Decision Trees) - 2",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/11/karar-agaclari-decision-trees-2/"
+      },
+      {
+        "title": "k-En yakın komşular (k-Nearest Neighbors)",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/13/k-en-yakin-komsular-k-nearest-neighbors/"
+      },
+      {
+        "title": "Modellerin birleştirilmesi (Ensemble Learning) - 1",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/14/modellerin-birlestirilmesi-ensemble-learning/"
+      },
+      {
+        "title": "Modellerin birleştirilmesi (Ensemble Learning) - 2",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/15/modellerin-birlestirilmesi-ensemble-learning-2/"
+      },
+      {
+        "title": "Modellerin birleştirilmesi (Ensemble Learning) - 3",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/16/modellerin-birlestirilmesi-ensemble-learning-3/"
+      },
+      {
+        "title": "Rastgele Ormanlar(Random Forests) ile Churn Analizi",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/17/rastgele-ormanlarrandom-forests-ile-churn-analizi/"
+      },
+      {
+        "title": "Modellerin birleştirilmesi (Ensemble Learning) - 4",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/19/modellerin-birlestirilmesi-ensemble-learning-4/"
+      },
+      {
+        "title": "Scikit-Learn ile Stacking",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/21/scikit-learn-ile-stacking/"
+      },
+      {
+        "title": "Gözetimsiz Öğrenme (K-Merkezli Öbekleme)",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/23/gozetimsiz-ogrenme-k-merkezli-obekleme/"
+      },
+      {
+        "title": "Ağaç yapılı öbekleme (Hierarchical Clustering) ve DBSCAN",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/24/agac-yapili-obekleme-hierarchical-clustering-ve-dbscan/"
+      },
+      {
+        "title": "Spark ile Film Tavsiye Sistemi",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/26/spark-ile-film-tavsiye-sistemi/"
+      },
+      {
+        "title": "Boyut İndirgeme (Dimensionality Reduction) - 1",
+        "link": "https://makineogrenimi.wordpress.com/2017/06/28/boyut-indirgeme-dimensionality-reduction-1/"
+      },
+      {
+        "title": "Boyut İndirgeme (Dimensionality Reduction) - 2",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/01/boyut-indirgeme-dimensionality-reduction-2/"
+      },
+      {
+        "title": "Boyut İndirgeme (Dimensionality Reduction) - 3",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/03/boyut-indirgeme-dimensionality-reduction-3/"
+      },
+      {
+        "title": "Boyut İndirgeme (Dimensionality Reduction) - 4",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/05/boyut-indirgeme-dimensionality-reduction-4/"
+      },
+      {
+        "title": "Boyut İndirgeme (Dimensionality Reduction) - 5",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/09/boyut-indirgeme-dimensionality-reduction-5/"
+      },
+      {
+        "title": "t-SNE ile Manifold Learning",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/09/t-sne-ile-manifold-learning/"
+      },
+      {
+        "title": "Yapay Sinir Ağları ve Derin Öğrenme - 1",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/15/yapay-sinir-aglari-ve-derin-ogrenme-1/"
+      },
+      {
+        "title": "Yapay Sinir Ağları ve Derin Öğrenme - 2",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/16/yapay-sinir-aglari-ve-derin-ogrenme-2/"
+      },
+      {
+        "title": "Yapay Sinir Ağları ve Derin Öğrenme - 3",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/18/yapay-sinir-aglari-ve-derin-ogrenme-3/"
+      },
+      {
+        "title": "Yapay Sinir Ağları ve Derin Öğrenme - 4",
+        "link": "https://makineogrenimi.wordpress.com/2017/07/19/yapay-sinir-aglari-ve-derin-ogrenme-4/"
+      }
+    ]
+  },
+  {
+    "year": 2019,
+    "publications": [
+      {
+        "title": "Bayesci İstatistiğe Giriş",
+        "link": "https://muratkoptur.com/bayesciistatistik/"
+      },
+      {
+        "title": "Monte Carlo simülasyonu ile Pi sayısına yaklaşım ve Haskell ile uygulaması",
+        "link": "https://muratkoptur.medium.com/monte-carlo-sim%C3%BClasyonu-ile-pi-say%C4%B1s%C4%B1na-yakla%C5%9F%C4%B1m-ve-haskell-ile-uygulamas%C4%B1-f5657ed127fb"
+      },
+      {
+        "title": "Olasılıksal Programlama Nedir?",
+        "link": "https://muratkoptur.medium.com/olas%C4%B1l%C4%B1ksal-programlama-nedir-64b827e9203a"
+      }
+    ]
+  },
+  {
+    "year": 2020,
+    "publications": [
+      {
+        "title": "Kalman Filtresi ve R ile bir uygulaması",
+        "link": "https://muratkoptur.medium.com/kalman-filtresi-ve-r-ile-bir-uygulamas%C4%B1-57d9039f2608"
+      },
+      {
+        "title": "Eksik Gözlem İçeren Verilerin Modellenmesi",
+        "link": "https://medium.com/healthelligence/eksik-g%C3%B6zlem-i%CC%87%C3%A7eren-verilerin-modellenmesi-ce38264be705"
+      },
+      {
+        "title": "Optimizasyon Algoritmaları",
+        "link": "https://medium.com/healthelligence/optimizasyon-algoritmalar%C4%B1-71c843c67bd1"
+      },
+      {
+        "title": "Bayesci İstatistiğe Giriş",
+        "link": "https://www.researchgate.net/publication/338896961_Bayesci_Istatistige_Giris"
+      },
+      {
+        "title": "RNA Dizileme Veri Analizi",
+        "link": "https://www.researchgate.net/publication/340254761_RNA_Dizileme_Veri_Analizi"
+      }
+    ]
+  },
+  {
+    "year": 2021,
+    "publications": [
+      {
+        "title": "Makine öğrenimi ve derin öğrenme üzerine bir eleştiri",
+        "link": "https://muratkoptur.medium.com/makine-%C3%B6%C4%9Frenimi-ve-derin-%C3%B6%C4%9Frenme-%C3%BCzerine-bir-ele%C5%9Ftiri-f59518c2f878"
+      },
+      {
+        "title": "Stokastik Süreçler ve Stokastik Diferansiyel Denklemler",
+        "link": "https://www.researchgate.net/publication/354200317_Stokastik_Sureclere_Giris"
+      }
+    ]
+  },
+  {
+    "year": 2022,
+    "publications": [
+      {
+        "title": "Dinamik Sistemlerin Derin Gecikmeli Otokodlayıcılar ile Keşfi",
+        "link": "https://muratkoptur.medium.com/dinamik-sistemlerin-derin-gecikmeli-otokodlay%C4%B1c%C4%B1lar-ile-ke%C5%9Ffi-bb6f625d6876"
+      },
+      {
+        "title": "Modelling the probability of earthquakes (M >= 5.0) in North Anatolian Fault Zone",
+        "link": "https://muratkoptur.com/MyDsProjects/EarthQuakeProbability/Analysis.html"
+      },
+      {
+        "title": "Stock Return and Fundamental Clustering & Portfolio Selection",
+        "link": "https://muratkoptur.com/MyDsProjects/StockClustering/Analysis.html"
+      },
+      {
+        "title": "Don't impute all missing data: Missing Data Patterns",
+        "link": "https://muratkoptur.com/MyDsProjects/MissingData/Analysis.html"
+      },
+      {
+        "title": "Don't Try to Forecast Everything: Predictability of Time Series",
+        "link": "https://muratkoptur.com/MyDsProjects/TimeSeriesPredictability/Analysis.html"
+      },
+      {
+        "title": "Why ML models fail in production: Model Drift",
+        "link": "https://muratkoptur.com/MyDsProjects/ConceptDrift/Analysis.html"
+      },
+      {
+        "title": "Nonlinear System Identification with NARMAX",
+        "link": "https://muratkoptur.com/MyDsProjects/SysIdent/Analysis.html"
+      },
+      {
+        "title": "Unsupervised Anomaly Detection with One-Class SVM",
+        "link": "https://muratkoptur.com/MyDsProjects/AnomalyOcsvm/Analysis.html"
+      },
+      {
+        "title": "Uncertainty Quantification with Polynomial Chaos",
+        "link": "https://muratkoptur.com/MyDsProjects/UncertaintyQuantification/Analysis.html"
+      },
+      {
+        "title": "Time Series Classification with Random Forests",
+        "link": "https://muratkoptur.com/MyDsProjects/TimeSeriesClassification/Analysis.html"
+      },
+      {
+        "title": "Build Diversified Portfolio with Machine Learning: Clustering method for stock selection",
+        "link": "https://muratkoptur.com/MyDsProjects/StockClusteringDiverse/Analysis.html"
+      },
+      {
+        "title": "Under the hood: Maximum Likelihood Estimation (MLE)",
+        "link": "https://muratkoptur.com/MyDsProjects/MLE/Analysis.html"
+      },
+      {
+        "title": "Under the hood: Expectation Maximization (EM)",
+        "link": "https://muratkoptur.com/MyDsProjects/EM/Analysis.html"
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "publications": [
+      {
+        "title": "Applying Optimal Control to Fishing",
+        "link": "https://muratkoptur.com/MyDsProjects/LotkaVolterraOptimalControl/Analysis.html"
+      }
+    ]
+  },
+  {
+    "year": 2024,
+    "publications": [
+      {
+        "title": "Solving Classic Sudoku Problems with Z3 Theorem Prover",
+        "link": "https://www.linkedin.com/pulse/solving-classic-sudoku-problems-z3-theorem-prover-murat-koptur-z9tzf/"
+      },
+      {
+        "title": "Topolojik veri analizine kısa bir bakış",
+        "link": "https://www.linkedin.com/pulse/topolojik-veri-analizine-k%C4%B1sa-bir-bak%C4%B1%C5%9F-murat-koptur-qzxsf/?trackingId=CdvL1eVaQmyeSQuVd29mnQ%3D%3D"
+      },
+      {
+        "title": "Zaman Serileri Analizinde Uzun Hafıza (Long Memory) ve Hurst Üsteli (Hurst Exponent), Kesirli Bütünleşme (Fractional Integration) Kavramları",
+        "link": "https://www.linkedin.com/pulse/zaman-serileri-analizinde-uzun-haf%C4%B1za-long-memory-ve-hurst-koptur-rnraf/?trackingId=LbbSbI%2BOSjyMH4B1%2BKTHmA%3D%3D"
+      },
+      {
+        "title": "Makine Öğrenimi Modellerinde Kalibrasyon (ML Model Calibration)",
+        "link": "https://www.linkedin.com/pulse/makine-%C3%B6%C4%9Frenimi-modellerinde-kalibrasyon-model-murat-koptur-rreyf/?trackingId=k8gwt4hnSsm3he9vSM37Ew%3D%3D"
+      },
+      {
+        "title": "İkili İşlemler (Pairs Trading) için Enstrüman Çiftlerinin Seçilmesi",
+        "link": "https://www.linkedin.com/pulse/ikili-i%25C5%259Flemler-pairs-trading-i%25C3%25A7in-enstr%25C3%25BCman-se%25C3%25A7ilmesi-murat-koptur-wyycf?trackingId=bCjRBiXpRJ6a%2BKv3IQnRHg%3D%3D&lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BhZS2XgPgQIiSPE9zzYfunQ%3D%3D"
+      },
+      {
+        "title": "Greenblatt'ın Sihirli Formülü ile Yatırım: BIST100 Örneği",
+        "link": "https://www.linkedin.com/pulse/greenblatt%25C4%25B1n-sihirli-form%25C3%25BCl%25C3%25BC-ile-yat%25C4%25B1r%25C4%25B1m-bist100-%25C3%25B6rne%25C4%259Fi-murat-koptur-lcxgf/"
+      },
+      {
+        "title": "Sağkalım Analizi (Survival Analysis) ile Kestirimci Bakım (Predictive Maintenance)",
+        "link": "https://www.linkedin.com/pulse/sa%C4%9Fkal%C4%B1m-analizi-ile-kestirimci-bak%C4%B1m-murat-koptur-7qasf/?trackingId=Z3jQmVC6TqaoIvql45Q%2BfA%3D%3D"
+      }
+    ]
+  },
+  {
+    "year": 2025,
+    "publications": [
+      {
+        "title": "Gri Kurt Optimizasyonu (Grey Wolf Optimizer - GWO)",
+        "link": "https://www.linkedin.com/pulse/gri-kurt-optimizasyonu-grey-wolf-optimizer-gwo-murat-koptur-qi4bf/?trackingId=Ya48ixZ3b5KNbVYkijIIPg%3D%3D"
+      },
+      {
+        "title": "Olasılıksal Veri Yapılarına (Probabilistic Data Structures) Giriş",
+        "link":"https://www.linkedin.com/pulse/olas%C4%B1l%C4%B1ksal-veri-yap%C4%B1lar%C4%B1na-probabilistic-data-giri%C5%9F-murat-koptur-xoyff/?trackingId=0mElJZcKQg2Fdtvxa3Kwdw%3D%3D"
+      }
+    ]
+  }
+]
