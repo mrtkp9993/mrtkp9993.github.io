@@ -27,19 +27,91 @@
 
     <link
             rel="stylesheet"
-            href="css/pico.classless.min.css"
+            href="css/pico.classless.cyan.min.css"
     >
+    <style>
+        @font-face {
+            font-family: 'nothing';
+            src: url('/fonts/NothingYouCouldDo-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'nextdoor';
+            src: url('/fonts/TheGirlNextDoor-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        #logo {
+            font-family: 'nothing', sans-serif;
+            font-size: 2.0rem;
+            margin: 0;
+        }
+        #logo-sub {
+            font-family: 'nextdoor', sans-serif;
+            font-size: 1.0rem;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav hgroup {
+            margin: 0;
+        }
+
+        nav > button {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 576px) {
+            nav > button {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1rem;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 <header>
     <nav>
-        <ul>
-            <hgroup>
-                <h1>murat koptur</h1>
-                <p>software developer</p>
-            </hgroup>
-        </ul>
-        <ul>
+        <hgroup>
+            <h1 id="logo">murat koptur</h1>
+            <p id="logo-sub">software developer</p>
+        </hgroup>
+
+        <button aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+
+        <ul id="nav-links">
             <li><a href="/"><u>home</u></a></li>
             <li><a href="/publications">publications</a></li>
             <li><a href="/projects">projects</a></li>
@@ -74,6 +146,11 @@
 
     const footer = document.getElementById('footer-text');
     footer.textContent = `© ${new Date().getFullYear()} Murat Koptur`;
+
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('show');
+    }
 </script>
 </body>
 </html>
