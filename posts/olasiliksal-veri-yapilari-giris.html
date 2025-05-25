@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>Olasılıksal Veri Yapılarına (Probabilistic Data Structures) Giriş</title>
+    <meta name="title" content="Olasılıksal Veri Yapılarına (Probabilistic Data Structures) Giriş" />
+    <meta name="description" content="Olasılıksal veri yapıları, bellek kullanımı ve işlem hızı arasında bir denge sağlayarak, kesin sonuçlar yerine yaklaşık ama yeterince doğru cevaplar sunabilen çözümler sunar." />
+    <meta name="keywords" content="olasılıksal veri yapıları, probabilistic data structures, bloom filtreleri, hash fonksiyonları, HyperLogLog, Count-min sketch, t-digest, Jaccard benzerliği, Locality Sensitive Hashing" />
+    <link rel="canonical" href="https://muratkoptur.com/posts/olasiliksal-veri-yapilari-giris" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muratkoptur.com/posts/olasiliksal-veri-yapilari-giris" />
+    <meta property="og:title" content="Olasılıksal Veri Yapılarına (Probabilistic Data Structures) Giriş" />
+    <meta property="og:description" content="Olasılıksal veri yapıları, bellek kullanımı ve işlem hızı arasında bir denge sağlayarak, kesin sonuçlar yerine yaklaşık ama yeterince doğru cevaplar sunabilen çözümler sunar." />
+    <meta property="og:image" content="https://muratkoptur.com/imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muratkoptur.com/posts/olasiliksal-veri-yapilari-giris" />
+    <meta property="twitter:title" content="Olasılıksal Veri Yapılarına (Probabilistic Data Structures) Giriş" />
+    <meta property="twitter:description" content="Olasılıksal veri yapıları, bellek kullanımı ve işlem hızı arasında bir denge sağlayarak, kesin sonuçlar yerine yaklaşık ama yeterince doğru cevaplar sunabilen çözümler sunar." />
+    <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
+    <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [["$","$"]],
+    displayMath: [["$$","$$"]],
+    processEscapes: true
+  },
+  "HTML-CSS": {
+    linebreaks: { automatic: true },
+    availableFonts: ["STIX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    imageFont: null,
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif"
+  }
+});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<main class="container">
+<h1 id="olaslksal-veri-yaplarna-probabilistic-data-structures-giris">Olasılıksal Veri Yapılarına (Probabilistic Data Structures) Giriş</h1>
+<p>İşlenen veri miktarlarının artmasıyla birlikte, geleneksel veri yapıları büyük verinin getirdiği zorluklara karşı yetersiz kalabilmektedir. Bu noktada, olasılıksal veri yapıları, bellek kullanımı ve işlem hızı arasında bir denge sağlayarak, <em>kesin</em> (exact) sonuçlar yerine <em>yaklaşık</em> (approximate) ama yeterince doğru cevaplar sunabilen çözümler olarak karşımıza çıkmaktadır. Hatalı sonuçlara dayalı kayıplar, düşük bellek gereksinimleri, sabit zamanlı ($O(1)$) veya logaritmik zamanlı ($O(\log n)$)sorgu süreleri ve ölçeklenebilirlik ile telafi edilir. Örneğin, bloom filtreleri, bir elemanın kümede olup olmadığını sorgularken yanlış pozitif (false positive) sonuçlar verebilir ancak yanlış negatif (false negative) sonuçlar asla üretmez.</p>
+<p>Hash fonksiyonları, verileri daha küçük ve sabit boyutlu bir forma indirgediklerinden, verilerin hızlı ve verimli bir şekilde işlenmesini sağlarlar. Olasılıksal veri yapılarının temelini oluştururlar.</p>
+<p>Kriptografik hash fonksiyonlarının aksine, olasılıksal veri yapılarında kullanılan hash fonksiyonlarının kabul edilebilir bir hata olasılığı ile hızlı olması ve düşük  çakışma olasılığı (collision probability) gereklidir, bu sayede büyük miktardaki veriler hızlıca hashlenebilir.</p>
+<p><img alt="Kaynak: https://systemdesign.one/bloom-filters-explained/add-item-bloom-filter.webp" src="https://systemdesign.one/bloom-filters-explained/add-item-bloom-filter.webp" /></p>
+<h2 id="uyelik-membership-sorgular">Üyelik (Membership) Sorguları</h2>
+<p>Üyelik sorguları, bir elemanın bir kümede olup olmadığını kontrol eder. </p>
+<p>Bloom filtresi, düşük bellek tüketimi ile hızlı bir sorgulama imkanı sağlar. Yanlış negatif sonuçlar üretebilir; yani bir elemanın kümede olduğu yanıtını verirken eleman gerçekte kümede olmayabilir. Yanlış negatif ise mümkün değildir. Dolayısıyla bir elemanın bir küme içindeki yokluğunu garanti eder. Web tarayıcılarında zararlı URL'lerin tespit edilmesi, veritabanlarında hızlı arama yapılması gibi alanlarda sıklıkla kullanılır. Bir web tarayıcısı, bilinen kötü URL'lerin bir listesini tutmak yerine, bu URL'lerin Bloom filtresini kullanır. Bir URL'ye erişilmeye çalışıldığında, Bloom filtresi bu URL'nin listede olup olmadığını kontrol eder. Eğer filtre "yok" derse, tarayıcı URL'ye güvenle erişebilir.</p>
+<p><img alt="Kaynak: https://chengweihu.com/static/a2cf27f831f49d26e113168e24aaa4c0/07a9c/Bucket.png" src="https://chengweihu.com/static/a2cf27f831f49d26e113168e24aaa4c0/07a9c/Bucket.png" /></p>
+<h2 id="kardinalite-cardinality-tahmini">Kardinalite (Cardinality) Tahmini</h2>
+<p>Büyük verisetlerinde benzersiz (distinct) elemanların sayımı için kullanılır. </p>
+<p>HyperLogLog, kardinalite tahmini için kullanılan bir veri yapısıdır. Bu algoritma, çok büyük veri setlerindeki benzersiz eleman sayısını düşük bellek kullanarak tahmin etmeyi sağlar. LogLog algoritmasının geliştirilmiş bir versiyonu olan HyperLogLog, özellikle büyük veri analizlerinde, benzersiz kullanıcı sayısını veya farklı olayların sayısını tahmin etmek için kullanılır. Örneğin, bir web sitesinin günlük ziyaretçi sayısını tahmin etmek için kullanılabilir. Her ziyaretçi için benzersiz bir hash değeri oluşturulur ve HyperLogLog algoritması bu değerleri kullanarak yaklaşık benzersiz ziyaretçi sayısını hesaplar.</p>
+<p><img alt="Kaynak: https://miro.medium.com/v2/resize:fit:1400/0*zGwOdus-ji85byGY" src="https://miro.medium.com/v2/resize:fit:1400/0*zGwOdus-ji85byGY" /></p>
+<h2 id="frekans-analizi-frequency-analysis">Frekans Analizi (Frequency Analysis)</h2>
+<p>Veri akışlarındaki (data stream) elemanların sıklığını tahmin etmek için kullanılırlar. </p>
+<p>Count-min sketch algoritması, gerçek frekansı hiçbir zaman olduğundan düşük tahmin etmez, ancak daha fazla tahmin edebilir (overestimation). Bu algoritma, özellikle veri akışlarında (data stream) en sık görünen öğeleri tespit etmek için kullanılır. Örneğin, bir sosyal medya platformunda en çok bahsedilen hashtag'leri bulmak için kullanılabilir.</p>
+<p><img alt="Kaynak: https://upload.wikimedia.org/wikipedia/commons/5/5e/Iqr_with_quantile.png" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Iqr_with_quantile.png" /></p>
+<h2 id="sralama-ranking">Sıralama (Ranking)</h2>
+<p>Büyük veri setlerinde yüzdelik dilimleri (quantiles) hesaplamak için kullanılırlar. t-digest algoritması bu tip bir algoritmadır. t-digest, büyük veri setlerindeki değerlerin dağılımını özetlemek ve yüzdelik dilimleri hesaplamak için kullanılır. Örneğin, bir e-ticaret sitesindeki ürün fiyatlarının yüzdelik dağılımını belirlemek için kullanılabilir. Bu, satıcıların fiyatlandırma stratejilerini optimize etmelerine yardımcı olabilir.</p>
+<p><img alt="Kaynak: https://cdn.sanity.io/images/vr8gru94/production/862f88182a796eb16942c47d93ee03ba4cdaee4d-1920x1080.png" src="https://cdn.sanity.io/images/vr8gru94/production/862f88182a796eb16942c47d93ee03ba4cdaee4d-1920x1080.png" /></p>
+<h2 id="benzerlik-similarity">Benzerlik (Similarity)</h2>
+<p>İki veri kümesi (metin dökümanı, DNA dizileri vb) arasındaki benzerliği hızlıca hesaplayabilmek için kullanılırlar. Jaccard benzerliği ve Locality Sensitive Hashing (LSH) bu tip algoritmalardır. Jaccard benzerliği, iki küme arasındaki ortak elemanların sayısının, kümelerin birleşimindeki eleman sayısına oranıdır. LSH ise, benzer öğelerin aynı hash değerine sahip olma olasılığını artıran bir hash fonksiyonu ailesidir. Bu teknikler, metin belgelerinin benzerliğini, DNA dizilerinin karşılaştırılmasını veya öneri sistemlerinde benzer öğelerin bulunmasını sağlar. Örneğin, bir arama motoru, benzer web sayfalarını tespit etmek için bu teknikleri kullanabilir.</p>
+<hr />
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li>Probabilistic Data Structures and Algorithms, Andrii Gakhov</li>
+</ul>
+</main>
+</body>
+</html>
