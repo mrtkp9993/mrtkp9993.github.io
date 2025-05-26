@@ -26,6 +26,18 @@
     <meta property="twitter:description" content="Bloom filtresi, bir kümede bir elemanın bulunup bulunmadığını hızlı ve verimli bir şekilde kontrol etmek için kullanılan, olasılıksal bir veri yapısıdır." />
     <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
     <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <style>
+figure img, p > img {
+  max-width: 33vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+</style>
     <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {
@@ -48,6 +60,7 @@ MathJax.Hub.Config({
 <body>
 <main class="container">
 <h1 id="bloom-filtresi-bloom-filter">Bloom Filtresi (Bloom Filter)</h1>
+<p class="subtitle"><time datetime="2025-05-18">2025-05-18</time></p>
 <p>Bir önceki <a href="https://muratkoptur.com/posts/olasiliksal-veri-yapilari-giris">yazımda</a> olasılıksal veri yapılarından bahsetmiştim. Bu yazıda ise bu veri yapılarından biri olan Bloom filtresini inceleyeceğiz. Bloom filtresi, bir küme içerisinde bir elemanın olup olmadığını belirlemek için kullanılır. Olasılıksal bir veri yapısı olduğu için, kesin (exact) bir sonuç vermez. Yani, bir elemanın kümede olup olmadığını kontrol ederken, yanlış pozitif (false positive) sonuç verebilir. Ancak, yanlış negatif (false negative) sonuç vermez. Yani, eğer bir eleman kümede yoksa, Bloom filtresi bunu kesin olarak belirler.</p>
 <p>Bir bloom filtresi temel olarak iki bileşenden oluşur: </p>
 <ul>
