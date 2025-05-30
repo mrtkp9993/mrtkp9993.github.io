@@ -327,11 +327,23 @@
       },
       {
         "title": "Olasılıksal Veri Yapılarına (Probabilistic Data Structures) Giriş",
-        "link":"https://www.linkedin.com/pulse/olas%C4%B1l%C4%B1ksal-veri-yap%C4%B1lar%C4%B1na-probabilistic-data-giri%C5%9F-murat-koptur-xoyff/?trackingId=0mElJZcKQg2Fdtvxa3Kwdw%3D%3D"
+        "link":"https://muratkoptur.com/posts/olasiliksal-veri-yapilari-giris"
       },
       {
         "title": "Bloom Filtresi",
-        "link": "https://www.linkedin.com/pulse/bloom-filtresi-murat-koptur-howyf"
+        "link": "https://muratkoptur.com/posts/bloom-filtresi"
+      },
+      {
+        "title": "Cuckoo Filtresi",
+        "link": "https://muratkoptur.com/posts/cuckoo-filtresi"
+      },
+      {
+        "title": "HyperLogLog",
+        "link": "https://muratkoptur.com/posts/hyperloglog"
+      },
+      {
+        "title": "Count-Min Sketch",
+        "link": "https://muratkoptur.com/posts/cmsketch"
       }
     ]
   }
