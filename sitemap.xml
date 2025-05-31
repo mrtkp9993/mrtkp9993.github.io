@@ -20,4 +20,25 @@
         <lastmod>2025-04-12T13:23:48+00:00</lastmod>
         <priority>0.80</priority>
     </url>
+	<url>
+        <loc>https://muratkoptur.com/posts/bloom-filtresi</loc>
+    </url>
+	<url>
+        <loc>https://muratkoptur.com/posts/cmsketch</loc>
+    </url>
+	<url>
+        <loc>https://muratkoptur.com/posts/cuckoo-filtresi</loc>
+    </url>
+	<url>
+        <loc>https://muratkoptur.com/posts/hyperloglog</loc>
+    </url>
+	<url>
+        <loc>https://muratkoptur.com/posts/lsh</loc>
+    </url>
+	<url>
+        <loc>https://muratkoptur.com/posts/olasiliksal-veri-yapilari-giris</loc>
+    </url>
+	<url>
+        <loc>https://muratkoptur.com/posts/qdigest</loc>
+    </url>
 </urlset>

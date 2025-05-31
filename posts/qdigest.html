@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>q-digest</title>
+    <meta name="title" content="q-digest" />
+    <meta name="description" content="q-digest algoritması, büyük veri akışlarında yüzdelikleri (quantile) yaklaşık olarak hesaplamak için kullanılan bir olasılıksal veri yapısıdır." />
+    <meta name="keywords" content="q-digest, quantile estimation, probabilistic data structures" />
+    <link rel="canonical" href="https://muratkoptur.com/posts/qdigest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muratkoptur.com/posts/qdigest" />
+    <meta property="og:title" content="q-digest" />
+    <meta property="og:description" content="q-digest algoritması, büyük veri akışlarında yüzdelikleri (quantile) yaklaşık olarak hesaplamak için kullanılan bir olasılıksal veri yapısıdır." />
+    <meta property="og:image" content="https://muratkoptur.com/imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muratkoptur.com/posts/qdigest" />
+    <meta property="twitter:title" content="q-digest" />
+    <meta property="twitter:description" content="q-digest algoritması, büyük veri akışlarında yüzdelikleri (quantile) yaklaşık olarak hesaplamak için kullanılan bir olasılıksal veri yapısıdır." />
+    <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
+    <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <style>
+figure img, p > img {
+  max-width: 33vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+</style>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [["$","$"]],
+    displayMath: [["$$","$$"]],
+    processEscapes: true
+  },
+  "HTML-CSS": {
+    linebreaks: { automatic: true },
+    availableFonts: ["STIX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    imageFont: null,
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif"
+  }
+});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<main class="container">
+<h1 id="q-digest">q-digest</h1>
+<p class="subtitle"><time datetime="2025-06-03">2025-06-03</time></p>
+<p>q-digest algoritması, büyük veri akışlarında yüzdelikleri (quantile) yaklaşık olarak hesaplamak için kullanılan bir olasılıksal veri yapısıdır. Sınırlı bellek kullanımı ile verilerin dağılımının özetini tutar.</p>
+<p>Algoritmanın çalışabilmesi için öncelikle işlenecek verilerin bulunacağı aralığın (universe) tanımlanması gerekir:</p>
+<p>$$
+U = [\sigma_{min},\sigma_{max}]
+$$</p>
+<p>Bu aralık, veri kümesindeki olası en küçük ve en büyük değerleri belirtir. Özetlenmek istenen veri kümesi $S$ ise şu şekilde tanımlanır:</p>
+<p>$$
+S={(v_1,w_1),(v_2,w_2),\ldots,(v_m,w_m)}
+$$</p>
+<p>Burada $v$ bir elemanı (değeri) , $w$ ise o öğrenin ağırlığını veya frekansını (kaç defa tekrarlandığını) ifade eder.</p>
+<p>q-digest, mantıksal olarak bir <em>tam ikili ağaç</em> (complete binary tree) yapısı üzerine kuruludur. Ancak, bellek verimliliği sağlamak amacıyla bu ağacın tamamı değil, yalnızca veri içeren düğümleri (node) saklanır. Bu ağacın özellikleri :</p>
+<ul>
+<li>Ağacın en alt seviyesindeki yaprak düğümler, $U$ veri aralığındaki tekil değerlere karşılık gelir.</li>
+<li>İç düğümler, belirli bir değer aralığını $[i,j]$ temsil eder.</li>
+<li>Ağaçtaki her düğüm (hem yaprak hem de iç düğümler), kendi temsil ettiği değere veya aralığa düşen toplam veri frekansını (ağırlığını) tutan bir sayım (count) değerine sahiptir.</li>
+</ul>
+<p>q-digest'in en önemli avantajlarından biri, bellek kullanımını optimize etmesidir. Bu, özellikle düşük frekanslı (az tekrarlanan) öğelerin bilgilerini birleştirerek sağlanır. Örneğin, <code>{3:1, 4:1}</code> (3 değeri 1 kez, 4 değeri 1 kez geçmiş) gibi ayrı ayrı tutulan bilgiler, <code>{[3,4]: 2}</code> (3 ile 4 arasındaki değerler toplam 2 kez geçmiş) şeklinde birleştirilebilir. Bu birleştirme işlemi, birebir öğe bilgisi yerine aralık bilgisi sunduğu için bir miktar bilgi kaybına yol açsa da, genel dağılım hakkında kabul edilebilir bir doğrulukla özet sunar.</p>
+<p>Sıkıştırma işlemi, veri yapısının boyutunu kontrol altında tutmak için belirli kurallara göre yapılır:</p>
+<ul>
+<li>Kural 1 (iç düğümler için): Bir v iç düğümünün sayım değeri $count(v)$, toplam frekansın (n) sıkıştırma parametresine (k) bölümünden küçük veya eşit olmalıdır:</li>
+</ul>
+<p>$$
+count(v) \leq \frac{n}{k}
+$$</p>
+<ul>
+<li>Kural 2 (her iç düğüm ve kardeşleri için): Bir v iç düğümü için, eğer v'nin bir kardeşi (sibling) varsa, v'nin sayımı, kardeşinin sayımı ve ebeveynlerinin (parent) sayımının toplamı, n/k​'dan büyük olmalıdır:</li>
+</ul>
+<p>$$
+count(v) + count(sibling) + count(parent) &gt; \frac{n}{k}
+$$</p>
+<p>Bu kurallar, düşük frekanslı yaprakların bilgilerinin üst düğümlerde toplanarak veri yapısının sıkıştırılmasını ve yönetilebilir boyutta kalmasını sağlar. k parametresi, sıkıştırma seviyesini ve dolayısıyla doğruluk ile bellek kullanımı arasındaki dengeyi ayarlar.</p>
+<p>q-digest algoritmasının temel çalışma adımları şu şekilde özetlenebilir:</p>
+<ol>
+<li>Başlatma: Boş bir q-digest (yani kök düğümü dışında hiçbir düğümü olmayan bir ikili ağaç) oluşturulur. Sıkıştırma parametresi $k$ belirlenir. Veri aralığı $U$ tanımlanır.</li>
+<li>Veri Ekleme (Update): Yeni bir $(v,w)$ veri öğesi geldiğinde, ağaç üzerinde $v$ değerine karşılık gelen yaprak düğüm (veya $v$'yi içeren en dar aralığa sahip düğüm) bulunur. Bu düğümün ve ebeveynlerinin count değerleri $w$ kadar artırılır.</li>
+<li>Sıkıştırma (Compress): Sayım değerleri güncellendikten sonra, ağaç üzerinde sıkıştırma kuralları (Kural 1 ve Kural 2) kontrol edilir. Sıkıştırma kurallarına göre, birleştirilebilecek düğümler belirlenir. Sayımlar ebeveyn düğümlere aktarılır, çocuk düğümler silinir.</li>
+<li>Yüzdelik Sorgulama (Query): Belirli bir q yüzdeliğine karşılık gelen değeri bulmak için:<ul>
+<li>İstenen yüzdelik $q$ için, toplam frekansın $n$ ile çarpımı $n \cdot q$ hesaplanır.</li>
+<li>Ağaç üzerinde dolaşarak, bu değere ulaşan en küçük düğüm bulunur. Bu düğümün aralığı, istenen yüzdelik değeri temsil eder.</li>
+</ul>
+</li>
+</ol>
+<p>t-Digest algoritması, q-digest'in bazı sınırlamalarını aşmak için Ted Dunning tarafından geliştirilmiş modern bir alternatiftir. q-digest algoritması veri aralığının önceden bilindiği durumlarda ve uniform doğruluk (tüm yüzdeliklerde aynı hata oranı) gerektiğinde tercih edilir. t-digest algoritması ise veri aralığının bilinmediği ve ekstrem yüzdeliklerde (%99.9, %99.99 gibi) yüksek doğruluk gerektiği durumlarda tercih edilir.</p>
+<p>Bir sonraki yazıda görüşmek üzere.</p>
+<hr />
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li><a href="https://chengzhaoxi.xyz/download/pdf/book/Probabilistic-Data-Structures-and-Algorithms-for-Big-Data-Applications.pdf">Probabilistic Data Structures and Algorithms for Big Data Applications</a></li>
+<li><a href="https://www.manning.com/books/algorithms-and-data-structures-for-massive-datasets">Algorithms and Data Structures for Massive Datasets</a></li>
+</ul>
+</main>
+</body>
+</html>

@@ -344,6 +344,14 @@
       {
         "title": "Count-Min Sketch",
         "link": "https://muratkoptur.com/posts/cmsketch"
+      },
+      {
+        "title": "q-digest",
+        "link": "https://muratkoptur.com/posts/qdigest"
+      },
+      {
+        "title": "Locality Sensitive Hashing (LSH)",
+        "link": "https://muratkoptur.com/posts/lsh"
       }
     ]
   }
