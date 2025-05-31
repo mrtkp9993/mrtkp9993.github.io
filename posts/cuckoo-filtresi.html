@@ -85,9 +85,9 @@ $$</p>
 </li>
 </ul>
 <p>Bir kümeye sık ekleme yapılıyorsa Bloom filtresi daha uygundur, ancak sorgulama işlemlerinde Cuckoo filtresi daha yüksek performans gösterir.</p>
-<p>Hedeflenen yanlış pozitif oranı $P_{f_p}$ (false positive rate) için, önerilen minimum parmak izi uzunluğu $p$ aşağıdaki formülle hesaplanabilir:</p>
+<p>Hedeflenen yanlış pozitif oranı $P_{f_p}$ (false positive rate) ve $b$ kova büyüklüğü için, önerilen minimum parmak izi uzunluğu $p$ aşağıdaki formülle hesaplanabilir:</p>
 <p>$$
-p = \lceil \log_2\left(\frac{1}{P_{f_p}}\right) \rceil
+p = \lceil \log_2\left(\frac{2b}{P_{f_p}}\right) \rceil
 $$</p>
 <p>Bir sonraki yazıda görüşmek üzere.</p>
 <hr />
