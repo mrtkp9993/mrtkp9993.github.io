@@ -1,4 +1,7 @@
 User-agent: *
 disallow: /cdn-cgi/
 
+User-agent: *
+Allow: /sitemap.xml
+
 Sitemap: https://muratkoptur.com/sitemap.xml
