@@ -11,6 +11,12 @@
     "img": "/imgs/tfx.webp"
   },
   {
+    "title": "Tradesly Candlestick Pattern Backtester",
+    "desc": "Backtesting tool for candlestick patterns",
+    "img": "/imgs/tradeslycpat.webp",
+    "link": "https://github.com/mrtkp9993/tradesly-cpat"
+  },
+  {
     "title": "AutoML App Suite",
     "desc": "One-click data science tools including AutoTS for time series forecasting, AutoAD for anomaly detection, and AutoCS for customer success metrics. Contact for licensing.",
     "img": "/imgs/col.webp"
@@ -36,8 +42,27 @@
     "img": "/imgs/tc.webp"
   },
   {
-    "title": "Multi-class weather recognition from still image with Deep Learning",
-    "desc": "CNN-based model for classifying weather conditions from images. Enables automated weather monitoring.",
-    "img": "/imgs/weather.webp"
+    "title": "goNN: Reverse-mode automatic differentiation library in Go",
+    "desc": "Go library for reverse-mode automatic differentiation.",
+    "img": "/imgs/gonn.webp",
+    "link": "https://github.com/mrtkp9993/gonn"
+  },
+  {
+    "title": "sklearn-edm: Emprical Dynamical Modeling (EDM) in sklearn",
+    "desc": "sklearn-style wrapper for Empirical Dynamical Modeling (EDM) methods.",
+    "img": "/imgs/sklearn_edm.webp",
+    "link": "https://github.com/mrtkp9993/sklearn-edm"
+  },
+  {
+    "title": "TDAShiny: Persistance and Barcode Diagram Visualization",
+    "desc": "Shiny app for visualizing persistence diagrams and barcodes in topological data analysis.",
+    "img": "/imgs/tdashiny.gif",
+    "link": "https://github.com/mrtkp9993/TDAShiny"
+  },
+  {
+    "title": "Unit Test C++: Simple Header-only Unit Testing Framework",
+    "desc": "Header-only C++ unit testing framework for writing and running tests easily.",
+    "img": "/imgs/cppunit.webp",
+    "link": "https://github.com/mrtkp9993/UnitTestCpp"
   }
 ]
