@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: muratkoptur.com
-Token: d34449e380d860ccf5bbe751045784baa4ebb0da6cc4750f48692a49383e7a94

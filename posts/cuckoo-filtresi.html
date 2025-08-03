@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>Cuckoo Filtresi</title>
+    <meta name="title" content="Cuckoo Filtresi" />
+    <meta name="description" content="Cuckoo filtresi, bir kümede bir elemanın bulunup bulunmadığını hızlı ve verimli bir şekilde kontrol etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta name="keywords" content=" cuckoo filtresi, cuckoo filter, olasılıksal veri yapıları, probabilistic data structures" />
+    <link rel="canonical" href="https://muratkoptur.com/posts/cuckoo-filtresi" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muratkoptur.com/posts/cuckoo-filtresi" />
+    <meta property="og:title" content="Cuckoo Filtresi" />
+    <meta property="og:description" content="Cuckoo filtresi, bir kümede bir elemanın bulunup bulunmadığını hızlı ve verimli bir şekilde kontrol etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta property="og:image" content="https://muratkoptur.com/imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muratkoptur.com/posts/cuckoo-filtresi" />
+    <meta property="twitter:title" content="Cuckoo Filtresi" />
+    <meta property="twitter:description" content="Cuckoo filtresi, bir kümede bir elemanın bulunup bulunmadığını hızlı ve verimli bir şekilde kontrol etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
+    <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <style>
+figure img, p > img {
+  max-width: 33vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+</style>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [["$","$"]],
+    displayMath: [["$$","$$"]],
+    processEscapes: true
+  },
+  "HTML-CSS": {
+    linebreaks: { automatic: true },
+    availableFonts: ["STIX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    imageFont: null,
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif"
+  }
+});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<main class="container">
+<h1 id="cuckoo-filtresi">Cuckoo Filtresi</h1>
+<p class="subtitle"><time datetime="2025-05-31">2025-05-31</time></p>
+<p>Cuckoo filtresi, bir önceki <a href="https://www.linkedin.com/pulse/bloom-filtresi-murat-koptur-howyf">yazımda</a> ele aldığım Bloom Filtresine alternatif olarak, 2014 yılında <a href="https://www.cs.cmu.edu/~binfan/papers/conext14_cuckoofilter.pdf">geliştirilmiştir</a>. Amacı, Üyelik (membership) sorguları için yapmaktır. Yani bir elemanın bir küme içerisinde  muhtemelen olup olmadığını belirlemek için kullanılır. Bloom filtresine benzer  olarak, bir elemanın küme içerisinde kesin olarak bulunmadığını belirlerken, yanlış pozitif sonuçlar üretebilir.</p>
+<p>Bloom filtresine göre avantajları, kümeden eleman silmeye izin vermesi ve daha yüksek sorgulama performansı sunabilmesidir.</p>
+<figure><img alt="Guguk kuşu, kaynak: Wikipedia" src="./imgs/cuckoo_filter_01.jpg" /><figcaption>Guguk kuşu, kaynak: Wikipedia</figcaption></figure>
+<p>Cuckoo filtresi, temel olarak sabit uzunlukta <em>parmak izleri</em> (fingerprints) ve bu parmak izlerinin saklandığı <em>kovalar</em> (buckets) içerir. Parmak izi, bir elemanın belirli bir hash fonksiyonundan geçirilmesiyle elde edilir ve çıkan sonucun yalnızca önceden belirlenmiş uzunluktaki kısmı alınarak oluşturulur.</p>
+<p>Cuckoo filtresinin akışı aşağıdaki gibi özetlenebilir:</p>
+<ul>
+<li>Ekleme (insertion): Kümeye eklenecek her $x$ elemanı için, $p$-bitlik parmak izi ve $i,j$ indeskleri hesaplanır:</li>
+</ul>
+<p>$$
+i = h_1(x)
+$$
+$$
+j = i \oplus h_2(\text{fingerprint}(x))
+$$</p>
+<p>Eğer $i$ veya $j$ kovasında boş yer varsa, parmak izi oraya yerleştirilir. Eğer her iki kova da dolu ise, fingerprint kovadaki fingerprintlerden birinin yerine yerleştirilir, yerinden edilen parmak izi ise kendi alternatif kovasına yerleştirmeye çalışılır (cuckoo hashing prensibi<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>). Bu işlem belli bir iterasyon sayısı kadar tekrarlanır; hala yer bulunamazsa filtre dolu kabul edilir.</p>
+<ul>
+<li>
+<p>Sorgulama (querying): Eleman için parmak izi ve aday indisler hesaplanır. Parmak izinin aday kovalarda bulunup bulunmadığı kontrol edilir.</p>
+</li>
+<li>
+<p>Silme (deletion): Eleman silinmek istendiğinde ise, elemana ait parmak izinin bulunduğu kovalar taranır ve ilgili parmak izi silinir.</p>
+</li>
+</ul>
+<p>Bir kümeye sık ekleme yapılıyorsa Bloom filtresi daha uygundur, ancak sorgulama işlemlerinde Cuckoo filtresi daha yüksek performans gösterir.</p>
+<p>Hedeflenen yanlış pozitif oranı $P_{f_p}$ (false positive rate) ve $b$ kova büyüklüğü için, önerilen minimum parmak izi uzunluğu $p$ aşağıdaki formülle hesaplanabilir:</p>
+<p>$$
+p = \lceil \log_2\left(\frac{2b}{P_{f_p}}\right) \rceil
+$$</p>
+<p>Bir sonraki yazıda görüşmek üzere.</p>
+<hr />
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li><a href="https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf">Cuckoo Filter: Practically Better Than Bloom</a></li>
+<li><a href="https://chengzhaoxi.xyz/download/pdf/book/Probabilistic-Data-Structures-and-Algorithms-for-Big-Data-Applications.pdf">Probabilistic Data Structures and Algorithms for Big Data Applications</a></li>
+<li><a href="https://redis.io/docs/latest/develop/data-types/probabilistic/cuckoo-filter/">Cuckoo Filter - Redis</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Guguk kuşları, parazitik bir üreme davranışı sergilerler. Guguk kuşu, yumurtalarını başka kuşların yuvalarına bırakır ve bu kuşlar yumurtayı kendi yumurtası olarak kabul edip kuluçkaya yatarlar. Guguk kuşu yavrusu, diğer yumurtalardan önce çıkarak diğer yavruları yuvadan atar.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+</main>
+</body>
+</html>

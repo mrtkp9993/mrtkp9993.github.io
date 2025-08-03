@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>Locality Sensitive Hashing (LSH)</title>
+    <meta name="title" content="Locality Sensitive Hashing (LSH)" />
+    <meta name="description" content="Locality Sensitive Hashing (LSH), yüksek boyutlu verilerde benzerlik aramak için kullanılan bir olasılıksal veri yapısıdır. LSH, benzer öğeleri aynı hash değerine atayarak, benzerlik aramalarını hızlandırır." />
+    <meta name="keywords" content="lsh, locality sensitive hashing, benzerlik arama, probabilistic data structures" />
+    <link rel="canonical" href="https://muratkoptur.com/posts/lsh" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muratkoptur.com/posts/lsh" />
+    <meta property="og:title" content="Locality Sensitive Hashing (LSH)" />
+    <meta property="og:description" content="Locality Sensitive Hashing (LSH), yüksek boyutlu verilerde benzerlik aramak için kullanılan bir olasılıksal veri yapısıdır. LSH, benzer öğeleri aynı hash değerine atayarak, benzerlik aramalarını hızlandırır." />
+    <meta property="og:image" content="https://muratkoptur.com/imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muratkoptur.com/posts/lsh" />
+    <meta property="twitter:title" content="Locality Sensitive Hashing (LSH)" />
+    <meta property="twitter:description" content="Locality Sensitive Hashing (LSH), yüksek boyutlu verilerde benzerlik aramak için kullanılan bir olasılıksal veri yapısıdır. LSH, benzer öğeleri aynı hash değerine atayarak, benzerlik aramalarını hızlandırır." />
+    <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
+    <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <style>
+figure img, p > img {
+  max-width: 33vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+</style>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [["$","$"]],
+    displayMath: [["$$","$$"]],
+    processEscapes: true
+  },
+  "HTML-CSS": {
+    linebreaks: { automatic: true },
+    availableFonts: ["STIX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    imageFont: null,
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif"
+  }
+});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<main class="container">
+<h1 id="locality-sensitive-hashing-lsh">Locality Sensitive Hashing (LSH)</h1>
+<p class="subtitle"><time datetime="2025-06-04">2025-06-04</time></p>
+<p>Büyük veri kümelerinde benzer öğeleri hızlıca bulmak, geleneksel yöntemlerle oldukça zaman alabilir. Özellikle yüksek boyutlu verilerde "yakın komşu arama (nearest neighbor search)" işlemleri maliyetlidir. Locality Sensitive Hashing (LSH), bu problemi çözmek için kullanılan etkili ve pratik bir tekniktir.</p>
+<p>Geleneksel hash fonksiyonları farklı girdiler için tamamen farklı çıktılar üretmeye çalışırken, LSH'de amaç tam tersidir: benzer öğelerin benzer hash çıktıları üretmesidir. Bu yaklaşım, veri uzayında "yakınlık" kavramını hash fonksiyonlarına entegre ederek, benzerlik aramayı hızlandırır.</p>
+<p>Bir hash fonksiyonu ailesi $H = \{ h: \mathbb{R}^d \rightarrow U \}$, $(r, c \cdot r, p_1, p_2)$ parametreleriyle locality-sensitive (yerellik duyarlı) sayılabilmesi için şu iki matematiksel koşulu sağlamalıdır:</p>
+<ul>
+<li>Koşul 1 (Yakın Öğeler): Eğer iki öğe birbirine yakınsa, yani aralarındaki mesafe $d(x, y) \leq r$ ise, bu öğelerin aynı hash değerine sahip olma olasılığı en az $p_1$​ olmalıdır:</li>
+</ul>
+<p>$$
+d(x, y) \leq r \implies P(h(x) = h(y)) \geq p_1
+$$</p>
+<ul>
+<li>Koşul 2 (Uzak Öğeler): Eğer iki öğe birbirinden uzaksa, yani aralarındaki mesafe $d(x, y) &gt; c \cdot r$ ise, bu öğelerin aynı hash değerine sahip olma olasılığı en fazla $p_2$​ olmalıdır:</li>
+</ul>
+<p>$$
+d(x, y) &gt; c \cdot r \implies P(h(x) = h(y)) \leq p_2
+$$</p>
+<p>Burada $c &gt; 1$ bir sabittir ve $p_1 &gt; p_2$ koşulu sağlanmalıdır.</p>
+<p>Bu iki koşul sayesinde hash fonksiyonu ailesi, benzer (yakın) öğeleri aynı hash'e, farklı (uzak) öğeleri ise farklı hash'lere eşleme eğiliminde olur. Bu da benzerlik arama gibi uygulamalarda verimli sonuçlar alınmasını sağlar.</p>
+<p>Bir sonraki yazıda görüşmek üzere.</p>
+<hr />
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li><a href="https://chengzhaoxi.xyz/download/pdf/book/Probabilistic-Data-Structures-and-Algorithms-for-Big-Data-Applications.pdf">Probabilistic Data Structures and Algorithms for Big Data Applications</a></li>
+<li><a href="https://www.manning.com/books/algorithms-and-data-structures-for-massive-datasets">Algorithms and Data Structures for Massive Datasets</a></li>
+</ul>
+</main>
+</body>
+</html>

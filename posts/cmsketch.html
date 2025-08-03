@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>Count-min Sketch</title>
+    <meta name="title" content="Count-min Sketch" />
+    <meta name="description" content="Count-min Sketch, büyük veri akışlarınındaki elemanların frekanslarını tahmin etmek için kullanılan olasılıksal bir veri yapısıdır." />
+    <meta name="keywords" content="count-min sketch, frekans tahmini, probabilistic data structures, frequency estimation" />
+    <link rel="canonical" href="https://muratkoptur.com/posts/cmsketch" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muratkoptur.com/posts/cmsketch" />
+    <meta property="og:title" content="Count-min Sketch" />
+    <meta property="og:description" content="Count-min Sketch, büyük veri akışlarınındaki elemanların frekanslarını tahmin etmek için kullanılan olasılıksal bir veri yapısıdır." />
+    <meta property="og:image" content="https://muratkoptur.com/imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muratkoptur.com/posts/cmsketch" />
+    <meta property="twitter:title" content="Count-min Sketch" />
+    <meta property="twitter:description" content="Count-min Sketch, büyük veri akışlarınındaki elemanların frekanslarını tahmin etmek için kullanılan olasılıksal bir veri yapısıdır." />
+    <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
+    <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <style>
+figure img, p > img {
+  max-width: 33vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+</style>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [["$","$"]],
+    displayMath: [["$$","$$"]],
+    processEscapes: true
+  },
+  "HTML-CSS": {
+    linebreaks: { automatic: true },
+    availableFonts: ["STIX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    imageFont: null,
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif"
+  }
+});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<main class="container">
+<h1 id="count-min-sketch">Count-min Sketch</h1>
+<p class="subtitle"><time datetime="2025-06-02">2025-06-02</time></p>
+<p>Count-min sketch (CM Sketch),büyük veri akışlarındaki (data stream) elemanların yaklaşık frekanslarını (kaç kere gözlemlendiğini) tahmin etmek için tasarlanmış bir olasılıksal veri yapısıdır. Geleneksel hash tablolarının yetersiz kaldığı yüksek hacimli veri akışlarında, elemanların kaç kez görüldüğünü etkili bir şekilde takip etmeyi sağlar.</p>
+<figure><img alt="Kaynak: https://www.researchgate.net/publication/325965443_Novel_Selectivity_Estimation_Strategy_for_Modern_DBMS
+" src="imgs/countmin.png" /><figcaption>Kaynak: <a href="https://www.researchgate.net/publication/325965443_Novel_Selectivity_Estimation_Strategy_for_Modern_DBMS" target="_blank" rel="noopener noreferrer">https://www.researchgate.net/publication/325965443_Novel_Selectivity_Estimation_Strategy_for_Modern_DBMS</a></figcaption></figure>
+<p>Count-min sketch algoritması iki bileşenden oluşur:</p>
+<ol>
+<li>$d\times w$ boyutlu bir matris: Burada $d$ hash fonksiyonu sayısını ve $w$ ise her hash fonksiyonu için sayaç sayısını temsil eder.</li>
+<li>$d$ adet bağımsız hash fonksiyonu: Her biri, $[0,w-1]$ aralığında bir indeks üretir.</li>
+</ol>
+<p>Algoritmanın çalışma prensibi şu şekildedir:</p>
+<ol>
+<li>
+<p><em>Bir elemanın frekansını güncelleme</em>: Eleman her hash fonksiyonundan geçirilerek $d$ tane $j$ indeksi elde edilir. Bu indeksler ile matrisin $i,j$ elemanı arttırılır.</p>
+</li>
+<li>
+<p><em>Bir elemanın tahmini frekansını bulma</em> : Frekansı sorgulanacak eleman her bir hash fonksiyonundan geçirilerek Her hash fonksiyonunun işaret ettiği sayaç değeri okunur ve bu değerlerin minimumu döndürülür. Hash çakışmaları (collison) nedeniyle sayaçlar gerçek değerlerinden büyük olabilir ama asla küçük olamazlar. </p>
+</li>
+</ol>
+<p>Count-Min Sketch hem yaklaşık hem de probabilistik bir algoritma olduğu için, iki temel parametre algoritmanın bellek ve zaman gereksinimlerini doğrudan etkiler: sorgu hatası $\epsilon$ ve hata olasılığı $\delta$. Algoritma, frekans tahminlerindeki hatanın $\epsilon n$ geçmeyeceğini en az $1-\epsilon$ olasılıkla garanti eder.</p>
+<p>Hash fonksiyon sayısının artması kötü tahmin olasılığını azaltır. İstenilen hata olasılığı $\delta$ için, Count-Min Sketch matrisinin satır sayısına karşılık gelen optimal hash fonksiyon sayısı:</p>
+<p>$$
+d = \left\lceil \ln(\frac{1}{\delta}) \right\rceil
+$$</p>
+<p>ile hesaplanabilir. Benzer şekilde, matrisin genişliği $w$ ise istenilen hata $\epsilon$ için:</p>
+<p>$$
+w = \left\lceil \frac{e}{\epsilon} \right\rceil
+$$
+olarak hesaplanır. Burada $e$ Euler sayısıdır.</p>
+<p>Count-Min Sketch'in güçlü özelliklerinden biri, toplam veri akışının belirli bir yüzdesinden fazla görülen "heavy-hitter" elemanları tespit edebilmesidir. Bu özellik, anomali tespiti ve trafik analizi gibi uygulamalarda kritik öneme sahiptir.</p>
+<p>Bir sonraki yazıda görüşmek üzere.</p>
+<hr />
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li><a href="https://chengzhaoxi.xyz/download/pdf/book/Probabilistic-Data-Structures-and-Algorithms-for-Big-Data-Applications.pdf">Probabilistic Data Structures and Algorithms for Big Data Applications</a></li>
+<li><a href="https://www.manning.com/books/algorithms-and-data-structures-for-massive-datasets">Algorithms and Data Structures for Massive Datasets</a></li>
+<li><a href="https://redis.io/blog/count-min-sketch-the-art-and-science-of-estimating-stuff/">Count-Min Sketch: The Art and Science of Estimating Stuff</a></li>
+</ul>
+</main>
+</body>
+</html>

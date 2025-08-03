@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>HyperLogLog</title>
+    <meta name="title" content="HyperLogLog" />
+    <meta name="description" content="HyperLogLog, büyük veri kümelerinin kardinalitesini tahmin etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta name="keywords" content="hyperloglog, kardinalite tahmini, probabilistic data structures, cardinality estimation" />
+    <link rel="canonical" href="https://muratkoptur.com/posts/hyperloglog" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muratkoptur.com/posts/hyperloglog" />
+    <meta property="og:title" content="HyperLogLog" />
+    <meta property="og:description" content="HyperLogLog, büyük veri kümelerinin kardinalitesini tahmin etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta property="og:image" content="https://muratkoptur.com/imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muratkoptur.com/posts/hyperloglog" />
+    <meta property="twitter:title" content="HyperLogLog" />
+    <meta property="twitter:description" content="HyperLogLog, büyük veri kümelerinin kardinalitesini tahmin etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
+    <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <style>
+figure img, p > img {
+  max-width: 33vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+</style>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [["$","$"]],
+    displayMath: [["$$","$$"]],
+    processEscapes: true
+  },
+  "HTML-CSS": {
+    linebreaks: { automatic: true },
+    availableFonts: ["STIX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    imageFont: null,
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif"
+  }
+});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<main class="container">
+<h1 id="hyperloglog">HyperLogLog</h1>
+<p class="subtitle"><time datetime="2025-06-01">2025-06-01</time></p>
+<p>HyperLogLog, büyük veri setlerindeki benzersiz elemanların sayısını (cardinality) tahmin etmek için kullanılan olasılıksal bir algoritmadır. </p>
+<p>Hyperloglog algoritması $10^9$ a kadar olan kardinaliteler için tek bir 32-bit hash fonksiyonu kullanılacak şekilde ve $m = 2^p, p\in [4,16]$ olacak şekilde tasarlanmıştır.</p>
+<figure><img alt="Kaynak: https://chengweihu.com/hyperloglog" src="imgs/hyperloglog.png" /><figcaption>Kaynak: <a href="https://chengweihu.com/hyperloglog" target="_blank" rel="noopener noreferrer">https://chengweihu.com/hyperloglog</a></figcaption></figure>
+<p>Algoritma aşağıdaki şekilde özetlenebilir:</p>
+<ol>
+<li>Verisetindeki her bir eleman hash fonksiyonundan geçirilerek öğeler sabit boyutlu rastgele dağılmış sayılara dönüştürülür, buna denk olarak $M$ uzunluğunda ikili (binary) dizelere dönüştürülmüş olur:</li>
+</ol>
+<p>$$
+h(x) = i = \sum_{k=0}^{M-1}i_k\cdot 2^k:=(i_0i_1\ldots i_{M-1})_2,i_k\in{0,1}
+$$</p>
+<ol>
+<li>
+<p>Hesaplanan hash değerleri iki parçaya bölünür: ilk $k$-bit öğenin hangi kovaya (bucket) olduğunu belirler. Kalan bitler, o kovada saklanacak değerin hesaplanmasında kullanılır.</p>
+</li>
+<li>
+<p>Her bir kayıtta, hash değerinin ikinci kısmındaki en soldaki 1-bitin konumu izlenir.</p>
+<ul>
+<li>Örneğin, ilk 4 bitin birinci kısmı ifade ettiği bir hash için, $h(A)=1010\mathbf{1}0...$ ise, en soldaki 1-bitin konumu 1; $h(B)=11001\mathbf{1}$ ise, en soldaki 1-bitin konumu 2 olacaktır.</li>
+</ul>
+</li>
+<li>
+<p>İlk $k$-bit kova indeksi olarak kullanıldığından, $2^k$ adet kova oluşturulur. Her kova için, o kovada en büyük en soldaki 1-bit konumu saklanır.</p>
+</li>
+<li>
+<p>Son olarak, bu kovaların en büyük değerleri kullanılarak, tahmini kardinalite hesaplanır:</p>
+</li>
+</ol>
+<p>$$
+\hat{n} = \alpha_m \cdot m^2 \cdot \left(\sum_{j=0}^{m-1} 2^{-M[j]}\right)^{-2}
+$$</p>
+<p>Bu formülde:</p>
+<ul>
+<li>$\hat{n}$: Tahmini kardinalite</li>
+<li>$\alpha_m$: Düzeltme faktörü</li>
+<li>$m$: Kova sayısı</li>
+<li>$M[j]$: $j$-inci kovadaki en büyük en soldaki 1-bit konumu</li>
+</ul>
+<p>Düzeltme katsayısı için sık kullanılan bazı değerler aşağıdaki gibidir:</p>
+<table>
+<thead>
+<tr>
+<th>$m$</th>
+<th>$\alpha_m$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$2^4$</td>
+<td>0.673</td>
+</tr>
+<tr>
+<td>$2^5$</td>
+<td>0.697</td>
+</tr>
+<tr>
+<td>$2^6$</td>
+<td>0.709</td>
+</tr>
+<tr>
+<td>$\gt 2^7$</td>
+<td>$\frac{0.7213\cdot m}{m+1.079}$</td>
+</tr>
+</tbody>
+</table>
+<p>Bir sonraki yazıda görüşmek üzere.</p>
+<hr />
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/hyperloglog-algorithm-in-system-design/">HyperLogLog Algorithm in System Design</a></li>
+<li><a href="https://chengzhaoxi.xyz/download/pdf/book/Probabilistic-Data-Structures-and-Algorithms-for-Big-Data-Applications.pdf">Probabilistic Data Structures and Algorithms for Big Data Applications</a></li>
+<li><a href="https://www.manning.com/books/algorithms-and-data-structures-for-massive-datasets">Algorithms and Data Structures for Massive Datasets</a></li>
+</ul>
+</main>
+</body>
+</html>

@@ -1,4 +1,7 @@
 User-agent: *
-disallow: /cdn-cgi/
+Disallow: /cdn-cgi/
+Allow: /sitemap.xml
 
-Sitemap: https://muratkoptur.com/sitemap-index.xml
+Sitemap: https://muratkoptur.com/sitemap.xml
+Sitemap: https://muratkoptur.com/bayesciistatistik/sitemap.xml
+Sitemap: https://muratkoptur.com/MyDsProjects/sitemap.xml

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="color-scheme" content="dark">
+
+    <title>Bloom Filtresi (Bloom Filter)</title>
+    <meta name="title" content="Bloom Filtresi (Bloom Filter)" />
+    <meta name="description" content="Bloom filtresi, bir kümede bir elemanın bulunup bulunmadığını hızlı ve verimli bir şekilde kontrol etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta name="keywords" content="bloom filtresi, bloom filter, olasılıksal veri yapıları, probabilistic data structures" />
+    <link rel="canonical" href="https://muratkoptur.com/posts/bloom-filtresi" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muratkoptur.com/posts/bloom-filtresi" />
+    <meta property="og:title" content="Bloom Filtresi (Bloom Filter)" />
+    <meta property="og:description" content="Bloom filtresi, bir kümede bir elemanın bulunup bulunmadığını hızlı ve verimli bir şekilde kontrol etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta property="og:image" content="https://muratkoptur.com/imgs/social.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://muratkoptur.com/posts/bloom-filtresi" />
+    <meta property="twitter:title" content="Bloom Filtresi (Bloom Filter)" />
+    <meta property="twitter:description" content="Bloom filtresi, bir kümede bir elemanın bulunup bulunmadığını hızlı ve verimli bir şekilde kontrol etmek için kullanılan, olasılıksal bir veri yapısıdır." />
+    <meta property="twitter:image" content="https://muratkoptur.com/imgs/social.webp" />
+    <link rel="stylesheet" href="css/pico.classless.cyan.min.css" />
+    <style>
+figure img, p > img {
+  max-width: 33vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+</style>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [["$","$"]],
+    displayMath: [["$$","$$"]],
+    processEscapes: true
+  },
+  "HTML-CSS": {
+    linebreaks: { automatic: true },
+    availableFonts: ["STIX"],
+    preferredFont: "STIX",
+    webFont: "STIX-Web",
+    imageFont: null,
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif"
+  }
+});
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<main class="container">
+<h1 id="bloom-filtresi-bloom-filter">Bloom Filtresi (Bloom Filter)</h1>
+<p class="subtitle"><time datetime="2025-05-18">2025-05-18</time></p>
+<p>Bir önceki <a href="https://muratkoptur.com/posts/olasiliksal-veri-yapilari-giris">yazımda</a> olasılıksal veri yapılarından bahsetmiştim. Bu yazıda ise bu veri yapılarından biri olan Bloom filtresini inceleyeceğiz. Bloom filtresi, bir küme içerisinde bir elemanın olup olmadığını belirlemek için kullanılır. Olasılıksal bir veri yapısı olduğu için, kesin (exact) bir sonuç vermez. Yani, bir elemanın kümede olup olmadığını kontrol ederken, yanlış pozitif (false positive) sonuç verebilir. Ancak, yanlış negatif (false negative) sonuç vermez. Yani, eğer bir eleman kümede yoksa, Bloom filtresi bunu kesin olarak belirler.</p>
+<p>Bir bloom filtresi temel olarak iki bileşenden oluşur: </p>
+<ul>
+<li><em>Bit dizisi</em> (bit array): Elemanların varlığını kontrol etmek için kullanılır. Bu dizi, elemanların varlığını temsil eden bitlerden oluşur. Her bit, bir elemanın kümede olup olmadığını gösterir. Eğer bir bit 1 ise, o eleman kümede vardır. Eğer bir bit 0 ise, o eleman kümede yoktur.</li>
+<li>Birden fazla <em>hash fonksiyonu</em>: Elemanları bit dizisine yerleştirmek için kullanılır.</li>
+</ul>
+<p>Örnek olarak 15 bit uzunluğunda bir bit dizisi ve 2 hash fonksiyonu (fnv ve murmur) kullanalım.</p>
+<p>Henüz hiç bir eleman eklemediğimiz için bit dizisi tamamen sıfırlardan oluşur. </p>
+<p><img alt="" src="imgs/bloom_filter_01.png" /></p>
+<p>Bir eleman eklemek istediğimizde, hash fonksiyonları kullanılarak bit dizisindeki bitlerin konumları belirlenir. Bu konumlar 1 olarak ayarlanır. Örneğin, “murat” kelimesini eklemek istediğimizde, fnv ve murmur hash fonksiyonları ile hesaplanan konumlar 7 ve 8 olsun (mod 15). Bu durumda bit dizisi şu şekilde güncellenir:</p>
+<p><img alt="" src="imgs/bloom_filter_02.png" /></p>
+<p>Daha sonra “murat” kelimesinin kümede olup olmadığını kontrol etmek istediğimizde, fnv ve murmur hash fonksiyonları ile hesaplanan konumlar 7 ve 8’dir. Bu konumlardaki bitler 1 olduğu için, “murat” kelimesinin kümede olduğunu söyleriz.</p>
+<p>Bloom filtresinin olasılıksal bir veri yapısı olduğunu unutmayalım. Yani, bir elemanın kümede olup olmadığını kontrol ederken, yanlış pozitif (false positive) sonuç verebilir. Örneğin, kümeye aşağıdaki elemanları ekleyelim: </p>
+<pre><code>koptur, fnv: 13, murmur: 1
+bloom, fnv: 7, murmur: 12
+filter, fnv: 5, murmur: 6
+probabilistic, fnv: 5, murmur: 12
+data, fnv: 4, murmur: 5
+structures, fnv: 1, murmur: 0
+</code></pre>
+<p>Bu durumda bit dizisi şu şekilde güncellenir (2,3,9,10,11,14 hariç her bit 1): </p>
+<p><img alt="" src="imgs/bloom_filter_03.png" /></p>
+<p>Bu durumda “murat” kelimesinin kümede olup olmadığını kontrol ettiğimizde, fnv ve murmur hash fonksiyonları ile hesaplanan konumlar 7 ve 8’dir. Ancak başka bir eleman ya da elemanların kombinasyonu bu konumları 1 yapmış olabilir. Bu durumda yanlış pozitif (false positive) sonucu alırız.</p>
+<p>Bloom filtresinin yanlış pozitif (false positive) oranı aşağıdaki formül ile hesaplanır: </p>
+<p>$P = (1 - e^{-\frac{kn}{m}})^k$</p>
+<p>Bu formülde:</p>
+<ul>
+<li>$P$: Yanlış pozitif (false positive) oranı</li>
+<li>$k$: Hash fonksiyonu sayısı</li>
+<li>$n$: Kümedeki eleman sayısı</li>
+<li>$m$: Bit dizisinin boyutu</li>
+<li>$e$: Euler sayısıdır.</li>
+</ul>
+<p>Örneğin, 15 bit uzunluğunda bir bit dizisi ve 2 hash fonksiyonu kullandığımızda, 6 eleman eklediğimizde, yanlış pozitif (false positive) oranı yaklaşık yüzde 36 olarak hesaplanır. Bu oran, bit dizisinin boyutunu artırarak veya hash fonksiyonu sayısını artırarak azaltılabilir. Ancak, bit dizisinin boyutunu artırmak, bellek kullanımını artırır. Hash fonksiyonu sayısını artırmak ise işlem süresini artırır. Bu nedenle, Bloom filtresi kullanırken bu iki faktörü dikkate almak önemlidir.</p>
+<p>n elemanlı bir dizi ve  yanlış pozitif (false positive) oranı belirlediğimiz bir Bloom filtresi için bit dizisinin boyutunu ve hash fonksiyonu sayısını hesaplamak için aşağıdaki formülleri kullanabiliriz:</p>
+<p>$$
+m = - \frac{n \ln\epsilon}{(\ln2)^2}
+$$
+$$
+k = - \frac{\ln\epsilon}{\ln2}
+$$</p>
+<p>Bloom filtresinin bir dezavantajı, eleman silmeye izin vermemesidir. </p>
+<p>Bir sonraki yazıda görüşmek üzere. </p>
+<hr />
+<h2 id="kaynaklar">Kaynaklar</h2>
+<ul>
+<li>https://llimllib.github.io/bloomfilter-tutorial/</li>
+<li>https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/</li>
+</ul>
+</main>
+</body>
+</html>
