@@ -1,5 +1,11 @@
 [
   {
+    "title": "FIXParserJ",
+    "desc": "A Java Swing application that uses QuickFIX/J to parse FIX (Financial Information eXchange) messages with a graphical interface.",
+    "img": "/imgs/fixparserj.png",
+    "link": "https://github.com/mrtkp9993/fixparserj"
+  },
+  {
     "title": "TradeslyPRO Cryptocurrency AI Robo-Advisor",
     "desc": "AI-powered crypto trading signals app with alpha factor generation, market analysis. Please contact for more information.",
     "img": "/imgs/tpro.webp",
@@ -22,28 +28,8 @@
     "img": "/imgs/col.webp"
   },
   {
-    "title": "Pre-Covid and Post-Covid Twitter sentiment analysis",
-    "desc": "Analysis of Twitter sentiment shifts before and after Covid-19 using NLP. Reveals social and emotional impacts of the pandemic through social media data analysis.",
-    "img": "/imgs/sentiment1.webp"
-  },
-  {
-    "title": "Image Forgery Localization with Deep Learning",
-    "desc": "Deep learning model for detecting and visualizing manipulated regions in images. Creates masks to highlight forged areas for digital forensics.",
-    "img": "/imgs/imageforgery.webp"
-  },
-  {
-    "title": "Text summarization with PageRank",
-    "desc": "Enhanced text summarization using cosine distance and PageRank algorithms. Generates concise summaries by combining semantic similarity with sentence importance scoring.",
-    "img": "/imgs/pagerank.webp"
-  },
-  {
-    "title": "Website Clustering and Classification with ML",
-    "desc": "ML system for clustering and classifying web pages using word vectors. Groups similar content and categorizes new pages to improve content organization.",
-    "img": "/imgs/tc.webp"
-  },
-  {
-    "title": "goNN: Reverse-mode automatic differentiation library in Go",
-    "desc": "Go library for reverse-mode automatic differentiation.",
+    "title": "GoNN: Reverse-mode automatic differentiation & neural network library in Go",
+    "desc": "Go library for reverse-mode automatic differentiation and neural nets.",
     "img": "/imgs/gonn.webp",
     "link": "https://github.com/mrtkp9993/gonn"
   },
@@ -64,5 +50,25 @@
     "desc": "Header-only C++ unit testing framework for writing and running tests easily.",
     "img": "/imgs/cppunit.webp",
     "link": "https://github.com/mrtkp9993/UnitTestCpp"
+  },
+  {
+    "title": "Pre-Covid and Post-Covid Twitter sentiment analysis",
+    "desc": "Analysis of Twitter sentiment shifts before and after Covid-19 using NLP. Reveals social and emotional impacts of the pandemic through social media data analysis.",
+    "img": "/imgs/sentiment1.webp"
+  },
+  {
+    "title": "Image Forgery Localization with Deep Learning",
+    "desc": "Deep learning model for detecting and visualizing manipulated regions in images. Creates masks to highlight forged areas for digital forensics.",
+    "img": "/imgs/imageforgery.webp"
+  },
+  {
+    "title": "Text summarization with PageRank",
+    "desc": "Enhanced text summarization using cosine distance and PageRank algorithms. Generates concise summaries by combining semantic similarity with sentence importance scoring.",
+    "img": "/imgs/pagerank.webp"
+  },
+  {
+    "title": "Website Clustering and Classification with ML",
+    "desc": "ML system for clustering and classifying web pages using word vectors. Groups similar content and categorizes new pages to improve content organization.",
+    "img": "/imgs/tc.webp"
   }
 ]
