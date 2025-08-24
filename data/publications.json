@@ -352,7 +352,11 @@
       {
         "title": "Locality Sensitive Hashing (LSH)",
         "link": "https://muratkoptur.com/posts/lsh"
-      }
+      },
+	  {
+		"title": "BIST100 Hisseleri için Dört Farklı Pivot Nokta Metodunun Karşılaştırmalı Analizi",
+		"link": "https://muratkoptur.com/research_reports/bist100_pivot_points.pdf"
+	  }
     ]
   }
 ]
