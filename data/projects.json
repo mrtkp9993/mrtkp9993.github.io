@@ -1,12 +1,13 @@
 [
   {
-    "title": "AnomalyMQ - Real-time Anomaly Detection",
-    "desc": "AnomalyMQ - Anomaly detection platform built with Go, Vue.js and NATS JetStream. Features real-time monitoring, dynamic rule configuration through an admin interface, and alerting system. Includes role-based authentication (admin/user). Supports range-based, z-score based and EWMA based anomaly detection algorithms. Please contact for licensing.",
-    "img": "/imgs/anomalymq.webp"
+    "title": "AnomalyMQ",
+    "desc": "Anomaly detection platform built with Go, Vue.js and NATS JetStream. Features real-time monitoring, dynamic rule configuration through an admin interface, and alerting system. Includes role-based authentication. Supports range-based, z-score based and EWMA based anomaly detection algorithms. Please contact for licensing.",
+    "img": "/imgs/anomalymq.webp",
+    "link":  "/extras/AnomalyMQ_Brochure.pdf"
   },
   {
     "title": "FIXParserJ",
-    "desc": "A Java Swing application that uses QuickFIX/J to parse FIX (Financial Information eXchange) messages with a graphical interface.",
+    "desc": "A Java Swing application that uses QuickFIX/J to parse FIX (Financial Information eXchange) messages.",
     "img": "/imgs/fixparserj.png",
     "link": "https://github.com/mrtkp9993/fixparserj"
   },
