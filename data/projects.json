@@ -6,6 +6,12 @@
     "link":  "/extras/AnomalyMQ_Brochure.pdf"
   },
   {
+    "title": "DocuSearch",
+    "desc": "DocuSearch enables teams to upload, search, and perform RAG with their PDF documents. Please contact for licensing.",
+    "img": "/imgs/docusearch.webp",
+    "link": "/extras/DocuSearch_Brochure.pdf"
+  },
+  {
     "title": "FIXParserJ",
     "desc": "A Java Swing application that uses QuickFIX/J to parse FIX (Financial Information eXchange) messages.",
     "img": "/imgs/fixparserj.png",
